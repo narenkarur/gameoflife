@@ -1,33 +1,30 @@
-
-/**
- * Write a description of class LifeTile here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import java.util.Random;
+import java.lang.Math;
 public class LifeTile
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class LifeTile
-     */
+    int amount;
+    Random rand;
     public LifeTile()
     {
-        // initialise instance variables
-        x = 0;
+        rand = new Random();
+        for(int i = 0; i<20; i++)
+        {
+            amount = setAmount();
+            System.out.println(amount);
+        }
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    
+    private int setAmount()
     {
-        // put your code here
-        return x + y;
+        double a = Math.pow((rand.nextDouble()*10),2);
+        int b;
+        if(a<1)
+        {
+            a = a*10;
+            b = (int) a*500;
+        } else b = (int) a*5000;
+        return b;
     }
+
 }

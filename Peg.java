@@ -3,6 +3,7 @@ public class Peg
 {
     boolean male;
     Color color;
+    
     public Peg(boolean m)
     {
         male = m;
