@@ -1,19 +1,20 @@
+package Cards;
 
 /**
- * Write a description of class Card here.
+ * Write a description of class HouseDeeds here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Card
+public class HouseDeedsCard extends Card
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Card
+     * Constructor for objects of class HouseDeeds
      */
-    public Card()
+    public HouseDeedsCard()
     {
         // initialise instance variables
         x = 0;

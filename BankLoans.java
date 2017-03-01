@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class CareerCard here.
+ * Write a description of class BankLoans here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class CareerCard extends Card
+public class BankLoans
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class CareerCard
+     * Constructor for objects of class BankLoans
      */
-    public CareerCard()
+    public BankLoans()
     {
         // initialise instance variables
         x = 0;

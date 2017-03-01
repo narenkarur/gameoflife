@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class HouseDeeds here.
+ * Write a description of class AutoInsurance here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HouseDeedsCard extends Card
+public class AutoInsurance
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class HouseDeeds
+     * Constructor for objects of class AutoInsurance
      */
-    public HouseDeedsCard()
+    public AutoInsurance()
     {
         // initialise instance variables
         x = 0;

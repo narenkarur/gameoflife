@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class Stocks here.
+ * Write a description of class HomeInsurance here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StocksCard extends Card
+public class HomeInsurance
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Stocks
+     * Constructor for objects of class HomeInsurance
      */
-    public StocksCard()
+    public HomeInsurance()
     {
         // initialise instance variables
         x = 0;

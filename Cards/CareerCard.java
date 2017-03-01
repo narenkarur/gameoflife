@@ -1,19 +1,21 @@
+package Cards;
+
 
 /**
- * Write a description of class SalaryCard here.
+ * Write a description of class CareerCard here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SalaryCard extends Card
+public class CareerCard extends Card
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class SalaryCard
+     * Constructor for objects of class CareerCard
      */
-    public SalaryCard()
+    public CareerCard()
     {
         // initialise instance variables
         x = 0;
