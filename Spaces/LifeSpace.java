@@ -23,8 +23,8 @@ public class LifeSpace extends Space
         messages.add("Go to bed without crying yourself to sleep!");
         messages.add("Start doing yoga!");
         messages.add("Teach yourself how to tap dance!");
-        messages.add("");
-        messages.add("");
+        messages.add("Experiment with erotica!");
+        messages.add("Achieve Nirvana!");
         messages.add("");
         messages.add("");
         messages.add("");
