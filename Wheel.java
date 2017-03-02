@@ -6,5 +6,10 @@ public class Wheel
     {
         rand = new Random();
     }
+    
+    public int spin()
+    {
+        
+    }
     //if spins to 10, pay police 5000
 }

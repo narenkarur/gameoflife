@@ -6,7 +6,7 @@ public class Space
     public Space()
     {
         
-    }
+    }//construct
     
     public void runSpaceMethod(Player p)
     {

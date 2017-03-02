@@ -7,11 +7,7 @@ public class LifeTile
     public LifeTile()
     {
         rand = new Random();
-        for(int i = 0; i<20; i++)
-        {
-            amount = setAmount();
-            System.out.println(amount);
-        }
+        amount = setAmount();
     }
 
     

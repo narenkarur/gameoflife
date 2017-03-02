@@ -25,7 +25,7 @@ public class LifeSpace extends Space
         messages.add("Teach yourself how to tap dance!");
         messages.add("Experiment with erotica!");
         messages.add("Achieve Nirvana!");
-        messages.add("");
+        messages.add("Get away with searching up Kale Smoothie recipies on your teacher's computer!");
         messages.add("");
         messages.add("");
         messages.add("");
