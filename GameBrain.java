@@ -34,7 +34,11 @@ public class GameBrain
     public void turn(Player p)
     {
         int spaceNum = w.spin();
+        spaceNum = b.checkForRed(spaceNum,p);
+        int numberofGreens = b.checkForGreen(spaceNum, p);
+        
         p.addSpace(spaceNum);
         b.actionFromSpace(p.getSpaceNum(), p);
+        p.checkForAction();
     }
 }

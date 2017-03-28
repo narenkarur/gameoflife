@@ -7,10 +7,22 @@ package Spaces;
  */
 public class RedSpace extends Space
 {
+    String[] stringValues = new String[15];
+    int option;
+    
+    //RETURN EITHER A 1 (CAREER), 2 (CAR), 3(HOUSE CHANGE) IN RETURNSPACEMETHOD 
+    
     
     public RedSpace()
     {
         
     }
-
+    public int returnSpaceMethod()
+    {        
+        return option;
+    }
+    public String returnText()
+    {
+        return "HI";
+    }   
 }

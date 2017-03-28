@@ -3,6 +3,7 @@ package Spaces;
 public class Space
 {
     
+    
     public Space()
     {
         
@@ -10,9 +11,15 @@ public class Space
     
     public void runSpaceMethod()//Player p)
     {
+
+    }
+    
+    public String returnText()
+    {
+        return "HI";
     }
 }
-//IN EVERY CLASS DEPENDENT ON SPACE, OVERRIDE ABOVE METHOD THAT TAKES IN P AND DOES SOMETHING TO IT
+
 //ALSO SHOULD HAVE CONSTRUCTORS FOR HARDCODING PURPOSES (MAYE JUST A STRING, INT, ETC);
 //name
 //method that tells us what we've used: we do this by returning the index value of the ArrayList of possibilities (a method)

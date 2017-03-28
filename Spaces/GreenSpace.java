@@ -6,10 +6,18 @@ package Spaces;
  */
 public class GreenSpace extends Space
 {
-    
+    //create an array of salary values
+    //modify the 
     public GreenSpace()
     {
         
     }
-
+    public int returnSpaceMethod()
+    {        
+        return option;
+    }
+    public String returnText()
+    {
+        return "HI";
+    }
 }
