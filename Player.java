@@ -14,6 +14,16 @@ public class Player
         car.addPeg(male);
         name=n;
     }
+    
+    public void addSpace(int n)
+    {
+        spaceNum+=n;
+    }
+    
+    public int getSpaceNum()
+    {
+        return spaceNum;
+    }
     //add getters and setters
     //add space method: takes current space and adds space
     

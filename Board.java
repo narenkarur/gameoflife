@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import Spaces.Space;
 /**
  * Write a description of class Board here.
  * 
@@ -23,6 +24,6 @@ public class Board
     }
     public void actionFromSpace(int spaceNum, Player p)
     {
-        spaceList.get(spaceNum-1).runSpaceMethod(p);
+        spaceList.get(spaceNum-1).runSpaceMethod();
     }
 }

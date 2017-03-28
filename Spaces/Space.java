@@ -8,7 +8,7 @@ public class Space
         
     }//construct
     
-    public void runSpaceMethod(Player p)
+    public void runSpaceMethod()//Player p)
     {
     }
 }

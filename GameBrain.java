@@ -23,16 +23,18 @@ public class GameBrain
         turn(playList.get(1));
         
     }
+    
     public void addPlayer(boolean male, String name)
     {
         //method to ask about players and genders
         //for now we will hardcode
         playList.add(new Player(male, name));
     }
+    
     public void turn(Player p)
     {
         int spaceNum = w.spin();
         p.addSpace(spaceNum);
-        b.actionFromSpace(p.getSpaceNum, p);
+        b.actionFromSpace(p.getSpaceNum(), p);
     }
 }
