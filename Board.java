@@ -20,7 +20,7 @@ public class Board
     public void initializeSpaces()
     {
         //HARD CODE BOARD
-        //spaceList.add(new GreenSpace());
+        //spaceList.add(new GreenSpace(constructor stuff));
     }
     public void actionFromSpace(int spaceNum, Player p)
     {
@@ -42,7 +42,8 @@ public class Board
     public int checkForGreen(int spaceNum, Player p)
     {
         //DON'T MODIFY SPACENUM
-        //use p.payday however many times
+        //check how many greens between p.currentspace and p.currentspace+spacenum
+        //use p.payday however many times ^^^^
         return 1;
     }    
 }
