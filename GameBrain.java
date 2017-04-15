@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 /**
  * Write a description of class GameBrain here.
  * 
@@ -19,6 +20,7 @@ public class GameBrain
      */
     public GameBrain()
     {
+        choosePath();
         turn(playList.get(0));
         turn(playList.get(1));
         
@@ -30,15 +32,31 @@ public class GameBrain
         //for now we will hardcode
         playList.add(new Player(male, name));
     }
-    
+    public void choosePath()
+    {
+        Scanner s = new Scanner(System.in);        
+        for(int i=0;i<playList.size();i++)
+        {
+            System.out.println("Player " + (i+1) + ", college or career(0,1)");
+            if(s.nextInt()==0)
+            {
+                playList.get(i).setCollege(true);
+            } else 
+            {
+                playList.get(i).setCollege(false);
+            }
+        }
+    }
     public void turn(Player p)
     {
-        int spaceNum = w.spin();
+        int spaceNum = w.spin();        
+
         spaceNum = b.checkForRed(spaceNum,p);
         int numberofGreens = b.checkForGreen(spaceNum, p);
         
         p.addSpace(spaceNum);
         b.actionFromSpace(p.getSpaceNum(), p);
         p.checkForAction();
+        
     }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import Spaces.Space;
+import java.util.Scanner;
 /**
  * Write a description of class Board here.
  * 
@@ -8,6 +9,7 @@ import Spaces.Space;
  */
 public class Board
 {
+    ArrayList<Space> collegeList = new ArrayList<Space>();
     ArrayList<Space> spaceList = new ArrayList<Space>();
 
     /**
@@ -15,8 +17,16 @@ public class Board
      */
     public Board()
     {
-       
+        initializeFirstSpaces();
+        initializeSpaces();
     }
+    public void initializeFirstSpaces()
+    {
+        //HARD CODE BOARD
+        collegeList.add(new OrangeSpace(
+        
+        //spaceList.add(new GreenSpace(constructor stuff));
+    }    
     public void initializeSpaces()
     {
         //HARD CODE BOARD
@@ -24,7 +34,19 @@ public class Board
     }
     public void actionFromSpace(int spaceNum, Player p)
     {
-        spaceList.get(spaceNum-1).runSpaceMethod();
+        if(spaceNum<6)
+        {
+            if(p.getCollege())
+            {
+                collegeList.get(spaceNum-1).runSpaceMethod();
+            } else
+            {
+                spaceList.get(spaceNum-1).runSpaceMethod();
+            }
+        } else
+        {
+            spaceList.get(spaceNum-1).runSpaceMethod();
+        }
         //return stuff
         //we are commenting this shit so that we can use if statements to do return values and then use them to change the variables of the player. so do that
         //lifespace: text, array[amount to be added to player's money, move space, career change] 
