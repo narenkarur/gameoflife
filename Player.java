@@ -8,6 +8,7 @@ public class Player
     String name;
     int spaceNum;
     int houses;
+    boolean college;//false if career
     public Player(boolean m, String n)
     {
         car = new Car();
@@ -47,6 +48,16 @@ public class Player
     {
         //choose one of the house deed cards, that's the house you get
         //this affects your cost per turn that is controlled in the checkForAction
+    }
+    
+    public boolean getCollege()
+    {
+        return college;
+    }
+    
+    public void setCollege(boolean c)
+    {
+        college = c;
     }
     //add getters and setters
     //add space method: takes current space and adds space

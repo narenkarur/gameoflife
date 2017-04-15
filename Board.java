@@ -15,13 +15,15 @@ public class Board
      */
     public Board()
     {
-       
+        
     }
+
     public void initializeSpaces()
     {
         //HARD CODE BOARD
         //spaceList.add(new GreenSpace(constructor stuff));
     }
+
     public void actionFromSpace(int spaceNum, Player p)
     {
         spaceList.get(spaceNum-1).runSpaceMethod();
@@ -30,15 +32,17 @@ public class Board
         //lifespace: text, array[amount to be added to player's money, move space, career change] 
         //redspace: text, career change, car change(married), house change 
         //
-        
+
         //do stuff to p
     }
+
     public int checkForRed(int spaceNum, Player p)
     {
         //if there is not a red(check between p.currentspace and p.currentspace+spaceNum), return spaceNum,
         //if there is a red, return the distance from currentspace to redspace
         return 1;
     }
+
     public int checkForGreen(int spaceNum, Player p)
     {
         //DON'T MODIFY SPACENUM
