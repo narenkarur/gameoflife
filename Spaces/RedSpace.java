@@ -7,25 +7,69 @@ package Spaces;
  */
 public class RedSpace extends Space
 {
-    String[] stringValues = new String[15];
-    int option;
-    
+    String text;
+    int raise;
+    int amt;
+    int houseBinary;
     //RETURN EITHER A 1 (CAREER), 2 (CAR), 3(HOUSE CHANGE) IN RETURNSPACEMETHOD 
     
     
-    public RedSpace()
+    public RedSpace(int which)
     {
-        
+        switch(which)
+        {
+            case 0:
+            {
+                text = "Stop. Get Married. Also, get a $10,000 Pay Raise.";
+                raise=10000;
+                amt = 0;
+                houseBinary = 0;
+                break;
+            }
+            case 1:
+            {
+                text = "Stop. Buy a Starter Home.";
+                raise=0;
+                amt = 0;
+                houseBinary = 1;
+                break;
+            }
+            case 2:
+            {
+                text = "Stop. Drop $20 on Street. Also, $10,000 Pay Raise.";
+                raise=10000;
+                amt = -20;
+                houseBinary = 0;
+                break;
+            }
+            case 3:
+            {
+                text = "Stop. $10,000 Pay Raise.";
+                raise=10000;
+                amt = 0;
+                houseBinary = 0;
+                break;
+            }
+            case 4:
+            {
+                text = "Stop. $10,000 Pay Raise and Buy Better Home.";
+                raise=10000;
+                amt = 0;
+                houseBinary = 1;
+                break;
+            }            
+        }
     }
     public int[] returnSpaceMethod()
     {
-        int[] returnArray = {0};
+        //pay raise, added balance, housebinary
+        int[] returnArray = {raise, amt, houseBinary};
         return returnArray;
     }
 
     public String returnText()
     {
-        return "";
+        return text;
     }  
     
     public int getType()
