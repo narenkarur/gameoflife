@@ -25,9 +25,8 @@ public class HomeInsurance
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public int sampleMethod(int y)
+    public void sampleMethod(int y)
     {
-        // put your code here
-        return x + y;
+        String[] strs = {"a","b"};
     }
 }
