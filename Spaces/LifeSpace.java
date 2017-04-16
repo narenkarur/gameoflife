@@ -13,29 +13,35 @@ import java.util.ArrayList;
  */
 public class LifeSpace extends Space
 {
-    Random rand;
-    ArrayList<String> messages;
-    public LifeSpace()
+    String text;
+    int amount;
+    public LifeSpace(int which)
     {
-        rand = new Random();
-        messages = new ArrayList<String>();
-        messages.add("Make your first kale smoothie!");
-        messages.add("Go to bed without crying yourself to sleep!");
-        messages.add("Start doing yoga!");
-        messages.add("Teach yourself how to tap dance!");
-        messages.add("Experiment with erotica!");
-        messages.add("Achieve Nirvana!");
-        messages.add("Get away with searching up Kale Smoothie recipies on your teacher's computer!");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
-        messages.add("");
+        //amount random gen
+        switch(which)
+        {
+            case 0:
+            {
+                text= "";
+                break;
+            }
+        }
+    }
+    
+    public int[] returnSpaceMethod()
+    {
+        int[] returnArray = {amount};
+        return returnArray;
+    }
+
+    public String returnText()
+    {
+        return text;
+    }  
+    
+    public int getType()
+    {
+        return 2;
     }
 
 }

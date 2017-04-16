@@ -32,6 +32,7 @@ public class GameBrain
         //for now we will hardcode
         playList.add(new Player(male, name));
     }
+    
     public void choosePath()
     {
         Scanner s = new Scanner(System.in);        
@@ -44,6 +45,7 @@ public class GameBrain
             } else 
             {
                 playList.get(i).setCollege(false);
+                b.chooseCareer(playList.get(i));
             }
         }
     }

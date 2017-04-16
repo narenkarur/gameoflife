@@ -2,7 +2,13 @@ package Spaces;
 
 public class Space
 {
-    
+    /*
+     * 1: orange space
+     * 2: life space
+     * 3: green space
+     * 4: red space
+     * 5: blue space
+     */
     
     public Space()
     {
@@ -17,6 +23,10 @@ public class Space
     public String returnText()
     {
         return "HI";
+    }
+    public int getType()
+    {
+        return 0;
     }
 }
 

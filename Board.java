@@ -17,42 +17,45 @@ public class Board
      */
     public Board()
     {
-<<<<<<< HEAD
         initializeFirstSpaces();
         initializeSpaces();
     }
     public void initializeFirstSpaces()
     {
         //HARD CODE BOARD
-        collegeList.add(new OrangeSpace(
+        //collegeList.add(new OrangeSpace());
         
         //spaceList.add(new GreenSpace(constructor stuff));
     }    
-=======
         
+    public void chooseCareer(Player p)
+    {
+        //hardcode careers
     }
 
->>>>>>> origin/master
     public void initializeSpaces()
     {
         //HARD CODE BOARD
         //spaceList.add(new GreenSpace(constructor stuff));
     }
-
+    public void runSpaceMethod(int type, int[] values, String text)    
+    {
+        //change player stuff here
+    }
     public void actionFromSpace(int spaceNum, Player p)
     {
         if(spaceNum<6)
         {
             if(p.getCollege())
             {
-                collegeList.get(spaceNum-1).runSpaceMethod();
+                runSpaceMethod(collegeList.get(spaceNum-1).getType(),collegeList.get(spaceNum-1).returnSpaceMethod(),collegeList.get(SpaceNum-1).returnText());
             } else
             {
-                spaceList.get(spaceNum-1).runSpaceMethod();
+                runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).runSpaceMethod(),spaceList.get(spaceNum-1).returnText());
             }
         } else
         {
-            spaceList.get(spaceNum-1).runSpaceMethod();
+            runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).runSpaceMethod(),spaceList.get(spaceNum-1).returnText());
         }
         //return stuff
         //we are commenting this shit so that we can use if statements to do return values and then use them to change the variables of the player. so do that

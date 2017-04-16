@@ -17,12 +17,19 @@ public class RedSpace extends Space
     {
         
     }
-    public int returnSpaceMethod()
-    {        
-        return option;
+    public int[] returnSpaceMethod()
+    {
+        int[] returnArray = {0};
+        return returnArray;
     }
+
     public String returnText()
     {
-        return "HI";
-    }   
+        return "";
+    }  
+    
+    public int getType()
+    {
+        return 4;
+    }
 }
