@@ -15,22 +15,124 @@ public class LifeSpace extends Space
 {
     String text;
     int amount;
+    Random rand;
+    int kidsBinary;
     public LifeSpace(int which)
     {
         //amount random gen
+        rand = new Random();
         switch(which)
         {
             case 0:
             {
-                text= "";
+                text= "Volunteer at soup kitchen.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 1:
+            {
+                text= "Happy Honeymoon!";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 2:
+            {
+                text= "Baby Boy!";
+                amount = setAmount();
+                kidsBinary = 1;
+                break;
+            }
+            case 3:
+            {
+                text= "Vote!!!";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 4:
+            {
+                text= "Baby Girl!";
+                amount = setAmount();
+                kidsBinary = 1;
+                break;
+            }
+            case 5:
+            {
+                text= "Adopt twins!!";
+                amount = setAmount();
+                kidsBinary = 2;
+                break;
+            }
+            case 6:
+            {
+                text= "Run for Congress.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 7:
+            {
+                text= "Donate to African Orphans.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 8:
+            {
+                text= "Visit Pyramids in Egypt.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 9:
+            {
+                text= "You're a grandparent!";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 10:
+            {
+                text= "Go hiking in the Australian Alps.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 11:
+            {
+                text= "Visit Great Wall of China.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }
+            case 12:
+            {
+                text= "You're a grandparent!";
+                amount = setAmount();
+                kidsBinary = 0;
                 break;
             }
         }
     }
     
+    public int setAmount()
+    {
+        double a = Math.pow((rand.nextDouble()*10),2);
+        int b;
+        if(a<1)
+        {
+            a = a*10;
+            b = (int) a*500;
+        } else b = (int) a*5000;
+        return b;
+    }
+    
     public int[] returnSpaceMethod()
     {
-        int[] returnArray = {amount};
+        //amount, kidsbinary
+        int[] returnArray = {amount, kidsBinary};
         return returnArray;
     }
 
