@@ -41,6 +41,8 @@ public class Board
     public void runSpaceMethod(int type, int[] values, String text)    
     {
         //change player stuff here
+        
+        //for red, remember that the first amount is a pay raise and second is added to balance
     }
     public void actionFromSpace(int spaceNum, Player p)
     {

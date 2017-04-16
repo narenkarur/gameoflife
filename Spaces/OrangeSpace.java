@@ -253,7 +253,36 @@ public class OrangeSpace extends Space
                 
                 break;
             }
-            
+            case 100:
+            {
+                text = "Start College. Borrow $100,000.";
+                amount = -100000;
+                houseBinary = 0;
+                careerBinary = 0;
+                 
+                
+                break;
+            }
+            case 101:
+            {
+                text = "Part-time job. Collect $10,000.";
+                amount = 10000;
+                houseBinary = 0;
+                careerBinary = 0;
+                 
+                
+                break;
+            }
+            case 102:
+            {
+                text = "Spring Break in Florida. Pay $5,000.";
+                amount = -5000;
+                houseBinary = 0;
+                careerBinary = 0;
+                 
+                
+                break;
+            }           
         }
     }
 

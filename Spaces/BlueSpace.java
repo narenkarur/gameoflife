@@ -5,20 +5,48 @@ package Spaces;
  */
 public class BlueSpace extends Space
 {
-    
-    public BlueSpace()
+    int amount;
+    String text;
+    public BlueSpace(int which)
     {
-        
+        switch(which)
+        {
+            case 0:
+            {
+                amount = 100000;
+                break;
+            }
+            case 1:
+            {
+                amount = 100000;
+                break;
+            }
+            case 2:
+            {
+                amount = 100000;
+                break;
+            }
+            case 3:
+            {
+                amount = 200000;
+                break;
+            }
+            case 4:
+            {
+                amount = 100000;
+                break;
+            }
+        }
     }
     public int[] returnSpaceMethod()
     {
-        int[] returnArray = {0};
+        int[] returnArray = {amount};
         return returnArray;
     }
 
     public String returnText()
     {
-        return "";
+        return "Lawsuit! Sue another player for $" + amount + ".";
     }  
     
     public int getType()

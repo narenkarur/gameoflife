@@ -11,6 +11,7 @@ public class RedSpace extends Space
     int raise;
     int amt;
     int houseBinary;
+    int careerBinary;
     //RETURN EITHER A 1 (CAREER), 2 (CAR), 3(HOUSE CHANGE) IN RETURNSPACEMETHOD 
     
     
@@ -24,6 +25,7 @@ public class RedSpace extends Space
                 raise=10000;
                 amt = 0;
                 houseBinary = 0;
+                careerBinary=0;
                 break;
             }
             case 1:
@@ -32,6 +34,7 @@ public class RedSpace extends Space
                 raise=0;
                 amt = 0;
                 houseBinary = 1;
+                careerBinary=0;
                 break;
             }
             case 2:
@@ -40,6 +43,7 @@ public class RedSpace extends Space
                 raise=10000;
                 amt = -20;
                 houseBinary = 0;
+                careerBinary=0;
                 break;
             }
             case 3:
@@ -48,6 +52,7 @@ public class RedSpace extends Space
                 raise=10000;
                 amt = 0;
                 houseBinary = 0;
+                careerBinary=0;
                 break;
             }
             case 4:
@@ -56,14 +61,24 @@ public class RedSpace extends Space
                 raise=10000;
                 amt = 0;
                 houseBinary = 1;
+                careerBinary=0;                
                 break;
-            }            
+            }        
+            case 100:
+            {
+                text = "Choose a College Career.";
+                raise=0;
+                amt = 0;
+                houseBinary = 0;
+                careerBinary=1;
+                break;
+            }              
         }
     }
     public int[] returnSpaceMethod()
     {
-        //pay raise, added balance, housebinary
-        int[] returnArray = {raise, amt, houseBinary};
+        //pay raise, added balance, housebinary, careerbinary
+        int[] returnArray = {raise, amt, houseBinary,careerBinary};
         return returnArray;
     }
 

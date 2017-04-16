@@ -114,6 +114,13 @@ public class LifeSpace extends Space
                 kidsBinary = 0;
                 break;
             }
+            case 100:
+            {
+                text= "Make new friends for life.";
+                amount = setAmount();
+                kidsBinary = 0;
+                break;
+            }            
         }
     }
     
