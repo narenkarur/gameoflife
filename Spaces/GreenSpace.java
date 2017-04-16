@@ -12,6 +12,7 @@ public class GreenSpace extends Space
     {
         
     }
+    
     public int[] returnSpaceMethod()
     {
         int[] returnArray = {0};
