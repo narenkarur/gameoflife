@@ -6,6 +6,7 @@ import Spaces.RedSpace;
 import Spaces.BlueSpace;
 import Spaces.GreenSpace;
 import java.util.Scanner;
+import java.util.Random;
 /**
  * Write a description of class Board here.
  * 
@@ -16,7 +17,10 @@ public class Board
 {
     ArrayList<Space> collegeList = new ArrayList<Space>();
     ArrayList<Space> spaceList = new ArrayList<Space>();
-
+    String[] collegeCareers;
+    String[] careers;
+    String[] houses;
+    Scanner cS = new Scanner(System.in);    
     /**
      * Constructor for objects of class Board
      */
@@ -24,7 +28,10 @@ public class Board
     {
         initializeFirstSpaces();
         initializeSpaces();
+        createCareerList();
+        createHouseList();
     }
+
     public void initializeFirstSpaces()
     {
         //HARD CODE BOARD
@@ -35,10 +42,147 @@ public class Board
         collegeList.add(new RedSpace(100));    
         //spaceList.add(new GreenSpace(constructor stuff));
     }    
-        
+
     public void chooseCareer(Player p)
     {
-        //hardcode careers
+        System.out.println("Your career is: ");
+        Random rand = new Random();
+        int careerChoice=rand.nextInt(5)+1;
+        if(p.getCollege())
+        {
+            if(careerChoice==1)
+            {
+                p.setCareer(collegeCareers[0]);
+                p.setSalary(270000);
+            }
+            if(careerChoice==2)
+            {
+                p.setCareer(collegeCareers[1]);
+                p.setSalary(310000);
+            }
+            if(careerChoice==3)
+            {
+                p.setCareer(collegeCareers[2]);
+                p.setSalary(220000);
+            }            
+            if(careerChoice==4)
+            {
+                p.setCareer(collegeCareers[3]);
+                p.setSalary(180000);
+            }
+            if(careerChoice==5)
+            {
+                p.setCareer(collegeCareers[4]);
+                p.setSalary(120000);
+            }
+        } else     
+        {
+            if(careerChoice==1)
+            {
+                p.setCareer(careers[0]);
+                p.setSalary(20000);
+            }
+            if(careerChoice==2)
+            {
+                p.setCareer(careers[1]);
+                p.setSalary(30000);
+            }
+            if(careerChoice==3)
+            {
+                p.setCareer(careers[2]);
+                p.setSalary(40000);
+            }            
+            if(careerChoice==4)
+            {
+                p.setCareer(careers[3]);
+                p.setSalary(80000);
+            }
+            if(careerChoice==5)
+            {
+                p.setCareer(careers[4]);
+                p.setSalary(35000);
+            }
+        }
+        System.out.println(p.getCareer());
+        System.out.println("$"+p.returnSalary() + " is your salary");
+    }
+
+    public void runHouse(Player p)
+    {
+        System.out.println("Your house is: ");
+        Random rand = new Random();
+        int houseChoice=rand.nextInt(7)+1;
+
+        if(houseChoice==1)
+        {
+            p.setHouse(houses[0]);
+            p.addMoney(-1500000);
+            System.out.println(", at $1.5 million, ");
+        }
+        if(houseChoice==2)
+        {
+            p.setHouse(houses[1]);
+            p.addMoney(-1000000);
+            System.out.println(", at $1 million, ");
+        }
+        if(houseChoice==3)
+        {
+            p.setHouse(houses[2]);
+            p.addMoney(-750000);
+            System.out.println(", at $750K, ");
+        }            
+        if(houseChoice==4)
+        {
+            p.setHouse(houses[3]);
+            p.addMoney(-300000);
+            System.out.println(", at 300K, ");
+        }
+        if(houseChoice==5)
+        {
+            p.setHouse(houses[4]);
+            p.addMoney(-80000);
+            System.out.println(", at $80K, ");
+        }
+
+        if(houseChoice==6)
+        {
+            p.setHouse(houses[5]);
+            p.addMoney(-20000);
+            System.out.println(", at $20K, ");
+        }
+        if(houseChoice==7)
+        {
+            p.setHouse(houses[6]);
+            p.addMoney(-500000);
+            System.out.println(", at $500K, ");
+        }
+        System.out.println("is " +p.getHouse());
+
+    }
+
+    public void createCareerList()
+    {
+        collegeCareers = new String[]{"APCS Teacher", "Doctor", "Lawyer", "Accountant", "Psychiatrist"};
+        careers = new String[]{"Janitor", "Hairstylist", "Mechanic", "Exotic Dancer", "Waiter"};
+    }
+
+    public void createHouseList()
+    {
+        houses = new String[]{"Mansion","Modern Victorian","High-Rise Apartment","Town Home","Mobile Home","Shack","Suburban Home"};
+    }
+
+    public void runKids(Player p, int x)
+    {
+        System.out.println("Sorry, but you now have " + x + " more mouth(s) to feed.");
+        p.addKids(x);
+    }    
+
+    public void runSueMethod(Player p)
+    {
+        System.out.println("Whom would you like to sue? Enter their name.");
+        String nam = cS.nextLine();
+        System.out.println("You really thought you could sue someone? How rude, lose 100K");
+        p.addMoney(-100000);
     }
 
     public void initializeSpaces()
@@ -108,41 +252,91 @@ public class Board
         spaceList.add(new OrangeSpace(22));      
         //spaceList.add(new GreenSpace(constructor stuff));
     }
-    public void runSpaceMethod(int type, int[] values, String text)    
+
+    public void runSpaceMethod(int type, int[] values, String text,Player p)    
     {
         //change player stuff here
         if(type==1)
         {
-            
+            System.out.println(text);
+            if(values[0]==69)
+            {
+                System.out.println("Subtracting $" +p.getTaxes() + " from your account. Sucks.");
+                p.addMoney(p.getTaxes()*-1);
+            } else if (values[0]==-69)
+            {
+                System.out.println("Subtracting $" +p.getCruiseAmount() + " from your account.");
+                p.addMoney(p.getCruiseAmount()*-1);
+            } else if (values[0]==690)
+            {
+                System.out.println("Congrats. You just got $" + p.getRetireAmount() + " from your kids.");
+                p.addMoney(p.getRetireAmount());
+            } else
+            {
+                System.out.println("Adding " + values[0] + " into account");
+                p.addMoney(values[0]);
+            }
+            if(values[1]==1)
+            {
+                runHouse(p);
+            }
+            if(values[2]==1)
+            {
+                chooseCareer(p);
+            }
         } else if(type==2)
         {
-            
+            System.out.println("You landed on LIFE tile.");
+            System.out.println(text);
+
+            p.addSecret(values[0]);
+            if(values[1]==1)
+            {
+                runKids(p,1);
+            } else if(values[1]==2)
+            {
+                runKids(p,2);
+            }
         } else if(type==3)
         {
-            
+            System.out.println("You landed on " + text);
         } else if(type==4)
         {
-            
+            System.out.println(text);
+            p.raise(values[0]);
+            System.out.println("Your salary is raised by $" + values[0]);
+            System.out.println("Adding " + values[1] + " into account");
+            p.addMoney(values[1]);
+            if(values[1]==1)
+            {
+                runHouse(p);
+            }
+            if(values[2]==1)
+            {
+                chooseCareer(p);
+            }            
         } else if(type==5)
         {
-            
+            System.out.println("You landed on Blue. You get to sue someone $" + values[0] + ".");
+            runSueMethod(p);
         }        
         //for red, remember that the first amount is a pay raise and second is added to balance
     }
+
     public void actionFromSpace(int spaceNum, Player p)
     {
         if(spaceNum<5)
         {
             if(p.getCollege())
             {
-                runSpaceMethod(collegeList.get(spaceNum-1).getType(),collegeList.get(spaceNum-1).returnSpaceMethod(),collegeList.get(spaceNum-1).returnText());
+                runSpaceMethod(collegeList.get(spaceNum-1).getType(),collegeList.get(spaceNum-1).returnSpaceMethod(),collegeList.get(spaceNum-1).returnText(),p);
             } else
             {
-                runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).returnSpaceMethod(),spaceList.get(spaceNum-1).returnText());
+                runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).returnSpaceMethod(),spaceList.get(spaceNum-1).returnText(),p);
             }
         } else
         {
-            runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).returnSpaceMethod(),spaceList.get(spaceNum-1).returnText());
+            runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).returnSpaceMethod(),spaceList.get(spaceNum-1).returnText(),p);
         }
         //return stuff
         //we are commenting this shit so that we can use if statements to do return values and then use them to change the variables of the player. so do that
@@ -156,15 +350,44 @@ public class Board
     public int checkForRed(int spaceNum, Player p)
     {
         //if there is not a red(check between p.currentspace and p.currentspace+spaceNum), return spaceNum,
-        //if there is a red, return the distance from currentspace to redspace
-        return 1;
+        //if there is a red, return the distance from currentspace to re
+        if(p.getSpaceNum()<6)
+        {
+            if(p.getCollege())
+            {
+                for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+                {
+                    if(collegeList.get(i).getType()==4)
+                    {
+                        return i-p.getSpaceNum();
+                    }
+                }                
+            }
+        } else
+        {
+            for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+            {
+                if(spaceList.get(i).getType()==4)
+                {
+                    return i-p.getSpaceNum();
+                }
+            }
+        }
+        return spaceNum;
     }
 
-    public int checkForGreen(int spaceNum, Player p)
+    public void checkForGreen(int spaceNum, Player p)
     {
         //DON'T MODIFY SPACENUM
         //check how many greens between p.currentspace and p.currentspace+spacenum
         //use p.payday however many times ^^^^
-        return 1;
-    }    
+        for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+        {
+            if(spaceList.get(i).getType()==3)
+            {
+                System.out.println("You went over a Pay Day!");
+                p.addMoney(p.returnSalary());
+            }
+        }
+    }  
 }

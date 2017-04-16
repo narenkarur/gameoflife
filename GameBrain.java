@@ -20,10 +20,15 @@ public class GameBrain
      */
     public GameBrain()
     {
+        addPlayer(true, "Ryan");
+        addPlayer(false, "Naren");
         choosePath();
         turn(playList.get(0));
         turn(playList.get(1));
-        
+        turn(playList.get(0));
+        turn(playList.get(1));
+        turn(playList.get(0));
+        turn(playList.get(1));        
     }
     
     public void addPlayer(boolean male, String name)
@@ -31,6 +36,7 @@ public class GameBrain
         //method to ask about players and genders
         //for now we will hardcode
         playList.add(new Player(male, name));
+        
     }
     
     public void choosePath()
@@ -51,14 +57,19 @@ public class GameBrain
     }
     public void turn(Player p)
     {
-        int spaceNum = w.spin();        
+        System.out.println();
+        System.out.println("Player " + p.getName() + ":");
+        int spaceNum = w.spin(); 
+        System.out.println("You spun " + spaceNum);
 
         spaceNum = b.checkForRed(spaceNum,p);
-        int numberofGreens = b.checkForGreen(spaceNum, p);
+        b.checkForGreen(spaceNum, p);
         
         p.addSpace(spaceNum);
         b.actionFromSpace(p.getSpaceNum(), p);
-        p.checkForAction();
+        //p.checkForAction();
+        System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
+        System.out.println();
         
     }
 }

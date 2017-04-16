@@ -66,7 +66,7 @@ public class RedSpace extends Space
             }        
             case 100:
             {
-                text = "Choose a College Career.";
+                text = "Stop. Choose a College Career.";
                 raise=0;
                 amt = 0;
                 houseBinary = 0;
