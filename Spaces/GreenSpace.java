@@ -8,7 +8,7 @@ public class GreenSpace extends Space
 {
     //create an array of salary values
     //modify the 
-    public GreenSpace()
+    public GreenSpace(int x)
     {
         
     }
