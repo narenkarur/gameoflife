@@ -9,7 +9,7 @@ public class Wheel
     
     public int spin()
     {
-        int num = rand.nextInt(10)+1;
+        int num = rand.nextInt(6)+1;
         //if(num==10)
         return num;
     }

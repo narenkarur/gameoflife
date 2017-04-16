@@ -9,6 +9,11 @@ public class Player
     int spaceNum;
     int houses;
     boolean college;//false if career
+    int secret;
+    int salary;
+    String career;
+    String house;
+    int kidCount;
     public Player(boolean m, String n)
     {
         car = new Car();
@@ -17,11 +22,17 @@ public class Player
         name=n;
         spaceNum=0;
         money=0;
+        
     }
     
     public void addSpace(int n)
     {
         spaceNum+=n;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
     
     public int getSpaceNum()
@@ -58,6 +69,63 @@ public class Player
     public void setCollege(boolean c)
     {
         college = c;
+    }
+    
+    public void addSecret(int x)
+    {
+        secret+=x;
+    }
+    public int getSecret()
+    {
+        return secret;
+    }
+    public void setSalary(int x)
+    {
+        salary =x;
+    }
+    public int returnSalary()
+    {
+        return salary;
+    }
+    public void raise(int x)
+    {
+        salary+=x;
+    }
+    public void setCareer(String x)
+    {
+        career=x;
+    }
+    public String getCareer()
+    {
+        return career;
+    }
+    public void setHouse(String h)
+    {
+        house = h;
+    }
+    public String getHouse()
+    {
+        return house;
+    }
+    public void addKids(int x)
+    {
+        kidCount+=x;
+    }
+    public int getKids()
+    {
+        return kidCount;
+    }
+    public int getTaxes()
+    {
+        return salary/5;
+    }
+    public int getCruiseAmount()
+    {
+        return (25000 + (kidCount*5000));
+    }
+    public int getRetireAmount()
+    {
+        return (10000*kidCount);
     }
     //add getters and setters
     //add space method: takes current space and adds space

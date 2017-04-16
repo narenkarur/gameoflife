@@ -9,20 +9,21 @@ public class Space
      * 4: red space
      * 5: blue space
      */
-    
+    int[] blah;
+    String text;
     public Space()
     {
         
     }//construct
     
-    public void runSpaceMethod()//Player p)
+    public int[] returnSpaceMethod()//Player p)
     {
-
+        return blah;
     }
     
     public String returnText()
     {
-        return "HI";
+        return text;
     }
     public int getType()
     {
