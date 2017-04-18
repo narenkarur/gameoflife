@@ -31,7 +31,16 @@ public class Board
         createCareerList();
         createHouseList();
     }
-
+    
+    public ArrayList<Space> getCollegeList()
+    {
+        return collegeList;
+    }
+    public ArrayList<Space> getSpaceList()
+    {
+        return spaceList;
+    }    
+    
     public void initializeFirstSpaces()
     {
         //HARD CODE BOARD

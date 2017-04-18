@@ -11,7 +11,7 @@ public class Engine
     private int playerNum;
     public static void main(String[] args)
     {
-        GameBrain gB = new GameBrain();  
+        GameBrain gB = new GameBrain(1100,850);  
     }
     /**
      * Constructor for objects of class Egine
