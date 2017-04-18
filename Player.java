@@ -14,6 +14,7 @@ public class Player
     String career;
     String house;
     int kidCount;
+    int lifeTileNumber;
     public Player(boolean m, String n)
     {
         car = new Car();
@@ -22,7 +23,8 @@ public class Player
         name=n;
         spaceNum=0;
         money=0;
-        
+        career="";
+        lifeTileNumber=0;
     }
     
     public void addSpace(int n)
@@ -126,6 +128,19 @@ public class Player
     public int getRetireAmount()
     {
         return (10000*kidCount);
+    }
+    public boolean hasJob()
+    {
+        if(career.equals("")) return false;
+        else return true;
+    }
+    public int getLifeTileNumber()
+    {
+        return lifeTileNumber;
+    }
+    public void addLife(int x)
+    {
+        lifeTileNumber+=x;
     }
     //add getters and setters
     //add space method: takes current space and adds space

@@ -299,6 +299,7 @@ public class Board
             System.out.println(text);
 
             p.addSecret(values[0]);
+            p.addLife(1);
             if(values[1]==1)
             {
                 runKids(p,1);
@@ -316,11 +317,11 @@ public class Board
             System.out.println("Your salary is raised by $" + values[0]);
             System.out.println("Adding " + values[1] + " into account");
             p.addMoney(values[1]);
-            if(values[1]==1)
+            if(values[2]==1)
             {
                 runHouse(p);
             }
-            if(values[2]==1)
+            if(values[3]==1)
             {
                 chooseCareer(p);
             }            
@@ -334,7 +335,7 @@ public class Board
 
     public void actionFromSpace(int spaceNum, Player p)
     {
-        if(spaceNum<5)
+        if(spaceNum<6)
         {
             if(p.getCollege())
             {
@@ -362,15 +363,29 @@ public class Board
         //if there is a red, return the distance from currentspace to re
         if(p.getSpaceNum()<6)
         {
+            System.out.println("POOP");
             if(p.getCollege())
             {
-                for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+                if(!p.hasJob())
+                {
+                    if(p.getSpaceNum()+spaceNum>4) return 5-p.getSpaceNum();
+                } else 
+                {
+                    for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+                    {
+                        if(spaceList.get(i).getType()==4)
+                        {
+                            return i-p.getSpaceNum();
+                        }
+                    }                    
+                }
+                /*for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
                 {
                     if(collegeList.get(i).getType()==4)
                     {
                         return i-p.getSpaceNum();
                     }
-                }                
+                }  */              
             }
         } else
         {
@@ -390,12 +405,31 @@ public class Board
         //DON'T MODIFY SPACENUM
         //check how many greens between p.currentspace and p.currentspace+spacenum
         //use p.payday however many times ^^^^
-        for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+        if(p.getSpaceNum()<5)
         {
-            if(spaceList.get(i).getType()==3)
+            if(p.getCollege())
             {
-                System.out.println("You went over a Pay Day!");
-                p.addMoney(p.returnSalary());
+                //do nothing
+            } else
+            {
+                for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+                {
+                    if(spaceList.get(i).getType()==3)
+                    {
+                        System.out.println("You went over a Pay Day! Adding your salary: $" + p.returnSalary()); 
+                        p.addMoney(p.returnSalary());
+                    }
+                }                
+            }
+        } else
+        {
+            for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+            {
+                if(spaceList.get(i).getType()==3)
+                {
+                    System.out.println("You went over a Pay Day! Adding your salary: $" + p.returnSalary()); 
+                    p.addMoney(p.returnSalary());
+                }
             }
         }
     }  
