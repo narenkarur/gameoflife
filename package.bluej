@@ -72,6 +72,7 @@ target13.type=PackageTarget
 target13.width=80
 target13.x=440
 target13.y=50
+<<<<<<< HEAD
 target14.editor.height=700
 target14.editor.width=900
 target14.editor.x=93
@@ -85,6 +86,8 @@ target14.typeParameters=
 target14.width=80
 target14.x=200
 target14.y=180
+=======
+>>>>>>> origin/master
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=0
@@ -128,6 +131,7 @@ target5.naviview.expanded=false
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
+<<<<<<< HEAD
 target5.width=80
 target5.x=140
 target5.y=310
@@ -146,12 +150,37 @@ target7.editor.y=5
 target7.height=50
 target7.name=Board
 target7.naviview.expanded=true
+=======
+target5.width=110
+target5.x=650
+target5.y=250
+target6.editor.height=700
+target6.editor.width=900
+target6.editor.x=0
+target6.editor.y=2
+target6.height=50
+target6.name=Board
+target6.naviview.expanded=true
+target6.showInterface=false
+target6.type=ClassTarget
+target6.typeParameters=
+target6.width=80
+target6.x=100
+target6.y=10
+target7.height=50
+target7.name=Peg
+>>>>>>> origin/master
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
 target7.width=80
+<<<<<<< HEAD
 target7.x=460
 target7.y=370
+=======
+target7.x=290
+target7.y=10
+>>>>>>> origin/master
 target8.editor.height=700
 target8.editor.width=900
 target8.editor.x=40

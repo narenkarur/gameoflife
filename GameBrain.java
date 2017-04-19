@@ -24,7 +24,7 @@ public class GameBrain
     int fH;
     JLabel nameL;
     JPanel mainP,actionP,playerP,infoP;
-    
+
     /**
      * Constructor for objects of class GameBrain
      */
@@ -35,17 +35,17 @@ public class GameBrain
         fr=new JFrame("LIFE");
         fr.setSize(fW,fH);
         fr.getContentPane().setLayout(new BorderLayout());
-        
+
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         mainP.setLayout(new BorderLayout());
         mainP.setPreferredSize(new Dimension(700, 700));    
-        
+
         JPanel actionP = new JPanel();
         actionP.setBorder(BorderFactory.createLineBorder(Color.red));
         actionP.setLayout(new BorderLayout());
         actionP.setPreferredSize(new Dimension(1100,150));
-        
+
         JPanel playerP = new JPanel();
         playerP.setBorder(BorderFactory.createLineBorder(Color.green));
         playerP.setLayout(new BorderLayout());
@@ -64,10 +64,10 @@ public class GameBrain
         infoP.setLayout(new GridLayout(1,5));
         playerP.add(infoP,BorderLayout.CENTER);
         //spun, kids, spouses, balance, life cards
-        
+
         //mainP.setMaximumSize(mainP.getPreferredSize());
         //mainP.setMinimumSize(new Dimension(390, 190));
-        
+
         fr.add(mainP,BorderLayout.WEST);
         fr.add(actionP,BorderLayout.SOUTH);
         fr.add(playerP,BorderLayout.EAST);
@@ -78,6 +78,7 @@ public class GameBrain
         fr.pack();
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+<<<<<<< HEAD
         
         for(int i=0;i<genderList.size();i++)
         {
@@ -85,6 +86,11 @@ public class GameBrain
         }
         //addPlayer(true, "Ryan");
         //addPlayer(false, "Naren");
+=======
+
+        addPlayer(true, "Ryan");
+        addPlayer(false, "Naren");
+>>>>>>> origin/master
         choosePath();
         int endCount=0;
         boolean gameContinue=true;
@@ -150,37 +156,39 @@ public class GameBrain
         }
         return returnWon;
     }
+
     public void fitFont(JLabel label)
     {
         Font labelFont = label.getFont();
         String labelText = label.getText();
-        
+
         int stringWidth = label.getFontMetrics(labelFont).stringWidth(labelText);
         int componentWidth = label.getWidth();
-        
+
         // Find out how much the font can grow in width.
         double widthRatio = (double)componentWidth / (double)stringWidth;
-        
+
         int newFontSize = (int)(labelFont.getSize() * widthRatio);
         int componentHeight = label.getHeight();
-        
+
         // Pick a new font size so it will not be larger than the height of label.
         int fontSizeToUse = Math.min(newFontSize, componentHeight);
-        
+
         // Set the label's font size to the newly determined size.
         label.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
     }
+
     public void buildUI()
     {
-                
+
     }    
-    
+
     public void addPlayer(boolean male, String name)
     {
         playList.add(new Player(male, name));
-        
+
     }
-    
+
     public void choosePath()
     {
         Scanner s = new Scanner(System.in);        
@@ -198,8 +206,10 @@ public class GameBrain
             }
         }
     }
+
     public void turn(Player p)
     {
+<<<<<<< HEAD
         if(!p.getDone())
         {
             System.out.println(); 
@@ -218,5 +228,23 @@ public class GameBrain
             System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
             //System.out.println();
         } else System.out.println("Player " + p.getName() + " is done.");
+=======
+        System.out.println(); 
+        nameL.setText(p.getName());
+        System.out.println("Player " + p.getName() + ":");
+        int spaceNum = w.spin(); 
+        System.out.println("You spun " + spaceNum);
+
+        spaceNum = b.checkForRed(spaceNum,p);
+        b.checkForGreen(spaceNum, p);
+
+        p.addSpace(spaceNum);
+        b.actionFromSpace(p.getSpaceNum(), p);
+        //p.checkForAction();
+        System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
+        System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
+        System.out.println();
+
+>>>>>>> origin/master
     }
 }
