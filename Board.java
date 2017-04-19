@@ -313,7 +313,6 @@ public class Board
         } else if(type==4)
         {
             System.out.println(text);
-<<<<<<< HEAD
             if(values[0]!=0)
             {
                 p.raise(values[0]);
@@ -331,17 +330,7 @@ public class Board
                     p.addMoney(values[1]);
                 }
             }
-=======
-<<<<<<< HEAD
-            if(values[0]!=0)
-=======
-            p.raise(values[0]);
-            System.out.println("Your salary is raised by $" + values[0]);
-            System.out.println("Adding " + values[1] + " into account");
-            p.addMoney(values[1]);
->>>>>>> origin/master
             if(values[2]==1)
->>>>>>> origin/master
             {
                 p.raise(values[0]);
                 System.out.println("Your salary is raised by $" + values[0]);

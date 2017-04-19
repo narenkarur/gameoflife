@@ -14,6 +14,7 @@ public class Engine
     public static void main(String[] args)
     {
         //CHANGE THE FOLLOWING TO ADD/REMOVE PLAYERS
+        System.out.println("Welcome to the Game of Life!");
         ArrayList<Boolean> gList = new ArrayList<Boolean>();//TRUE MEANS MALE, FALSE=FEMALE
         ArrayList<String> sList= new ArrayList<String>(); //NAME CORRESPONDING TO INDEX OF GLIST
         Scanner read = new Scanner(System.in);

@@ -78,19 +78,11 @@ public class GameBrain
         fr.pack();
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-<<<<<<< HEAD
         
         for(int i=0;i<genderList.size();i++)
         {
             addPlayer(genderList.get(i),nameList.get(i));
         }
-        //addPlayer(true, "Ryan");
-        //addPlayer(false, "Naren");
-=======
-
-        addPlayer(true, "Ryan");
-        addPlayer(false, "Naren");
->>>>>>> origin/master
         choosePath();
         int endCount=0;
         boolean gameContinue=true;
@@ -203,13 +195,13 @@ public class GameBrain
             {
                 playList.get(i).setCollege(false);
                 b.chooseCareer(playList.get(i));
+                System.out.println();
             }
         }
     }
 
     public void turn(Player p)
     {
-<<<<<<< HEAD
         if(!p.getDone())
         {
             System.out.println(); 
@@ -228,23 +220,5 @@ public class GameBrain
             System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
             //System.out.println();
         } else System.out.println("Player " + p.getName() + " is done.");
-=======
-        System.out.println(); 
-        nameL.setText(p.getName());
-        System.out.println("Player " + p.getName() + ":");
-        int spaceNum = w.spin(); 
-        System.out.println("You spun " + spaceNum);
-
-        spaceNum = b.checkForRed(spaceNum,p);
-        b.checkForGreen(spaceNum, p);
-
-        p.addSpace(spaceNum);
-        b.actionFromSpace(p.getSpaceNum(), p);
-        //p.checkForAction();
-        System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
-        System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
-        System.out.println();
-
->>>>>>> origin/master
     }
 }
