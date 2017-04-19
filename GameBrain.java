@@ -82,10 +82,16 @@ public class GameBrain
         addPlayer(true, "Ryan");
         addPlayer(false, "Naren");
         choosePath();
+        System.out.println("TURN 1");
         turn(playList.get(0));
         turn(playList.get(1));
+        System.out.println("TURN 2");
         turn(playList.get(0));
         turn(playList.get(1));
+        System.out.println("TURN 3");
+        turn(playList.get(0));
+        turn(playList.get(1)); 
+        System.out.println("TURN 4");
         turn(playList.get(0));
         turn(playList.get(1));        
     }
@@ -156,6 +162,7 @@ public class GameBrain
         b.actionFromSpace(p.getSpaceNum(), p);
         //p.checkForAction();
         System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
+        System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
         System.out.println();
 
     }
