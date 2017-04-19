@@ -54,7 +54,7 @@ public class Board
 
     public void chooseCareer(Player p)
     {
-        System.out.println("Your career is: ");
+        System.out.println("The career of Player " + p.getName() +" is: ");
         Random rand = new Random();
         int careerChoice=rand.nextInt(5)+1;
         if(p.getCollege())
@@ -165,7 +165,7 @@ public class Board
             p.addMoney(-500000);
             System.out.println(", at $500K, ");
         }
-        System.out.println("is " +p.getHouse());
+        System.out.println("a " +p.getHouse());
 
     }
 
@@ -190,7 +190,7 @@ public class Board
     {
         System.out.println("Whom would you like to sue? Enter their name.");
         String nam = cS.nextLine();
-        System.out.println("You really thought you could sue someone? How rude, lose 100K");
+        System.out.println("You really thought you could sue someone? How rude, lose $100K");
         p.addMoney(-100000);
     }
 
@@ -258,7 +258,7 @@ public class Board
         spaceList.add(new LifeSpace(11));
         spaceList.add(new GreenSpace(13));
         spaceList.add(new OrangeSpace(21));
-        spaceList.add(new OrangeSpace(22));      
+        spaceList.add(new RedSpace(5));      
         //spaceList.add(new GreenSpace(constructor stuff));
     }
 
@@ -276,14 +276,13 @@ public class Board
             {
                 System.out.println("Subtracting $" +p.getCruiseAmount() + " from your account.");
                 p.addMoney(p.getCruiseAmount()*-1);
-            } else if (values[0]==690)
-            {
-                System.out.println("Congrats. You just got $" + p.getRetireAmount() + " from your kids.");
-                p.addMoney(p.getRetireAmount());
             } else
             {
-                System.out.println("Adding " + values[0] + " into account");
-                p.addMoney(values[0]);
+                if(values[0]!=0)
+                {
+                    System.out.println("Adding $" + values[0] + " into account");
+                    p.addMoney(values[0]);
+                }
             }
             if(values[1]==1)
             {
@@ -295,7 +294,7 @@ public class Board
             }
         } else if(type==2)
         {
-            System.out.println("You landed on LIFE tile.");
+            System.out.print("You landed on LIFE tile. ");
             System.out.println(text);
 
             p.addSecret(values[0]);
@@ -313,10 +312,23 @@ public class Board
         } else if(type==4)
         {
             System.out.println(text);
-            p.raise(values[0]);
-            System.out.println("Your salary is raised by $" + values[0]);
-            System.out.println("Adding " + values[1] + " into account");
-            p.addMoney(values[1]);
+            if(values[0]!=0)
+            {
+                p.raise(values[0]);
+                System.out.println("Your salary is raised by $" + values[0]);
+            }
+            if (values[1]==690)
+            {
+                System.out.println("Congrats. You just got $" + p.getRetireAmount() + " from your kids.");
+                p.addMoney(p.getRetireAmount());
+            } else
+            {
+                if(values[1]!=0)
+                {
+                    System.out.println("Adding " + values[1] + " into account");
+                    p.addMoney(values[1]);
+                }
+            }
             if(values[2]==1)
             {
                 runHouse(p);
@@ -363,7 +375,6 @@ public class Board
         //if there is a red, return the distance from currentspace to re
         if(p.getSpaceNum()<6)
         {
-            System.out.println("POOP");
             if(p.getCollege())
             {
                 if(!p.hasJob())
@@ -389,8 +400,9 @@ public class Board
             }
         } else
         {
-            for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
+            for(int i=p.getSpaceNum()+1;i<p.getSpaceNum()+spaceNum;i++)
             {
+                if(p.getSpaceNum()+spaceNum>=62) return 1;
                 if(spaceList.get(i).getType()==4)
                 {
                     return i-p.getSpaceNum();
@@ -421,6 +433,9 @@ public class Board
                     }
                 }                
             }
+        } else if(p.getSpaceNum()+spaceNum>=62)
+        {
+            //do nothing
         } else
         {
             for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)

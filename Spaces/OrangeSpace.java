@@ -243,16 +243,6 @@ public class OrangeSpace extends Space
                 
                 break;
             }
-            case 22:
-            {
-                text = "Retire. Collect $10,000 retirement from each child.";
-                amount = 690;
-                houseBinary = 0;
-                careerBinary = 0;
-                 
-                
-                break;
-            }
             case 100:
             {
                 text = "Start College. Borrow $100,000.";

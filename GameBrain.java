@@ -28,7 +28,7 @@ public class GameBrain
     /**
      * Constructor for objects of class GameBrain
      */
-    public GameBrain(int x, int y)
+    public GameBrain(int x, int y, ArrayList<Boolean> genderList, ArrayList<String> nameList)
     {
         fW=x;
         fH=y;
@@ -79,10 +79,39 @@ public class GameBrain
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         
-        addPlayer(true, "Ryan");
-        addPlayer(false, "Naren");
+        for(int i=0;i<genderList.size();i++)
+        {
+            addPlayer(genderList.get(i),nameList.get(i));
+        }
+        //addPlayer(true, "Ryan");
+        //addPlayer(false, "Naren");
         choosePath();
-        System.out.println("TURN 1");
+        int endCount=0;
+        boolean gameContinue=true;
+        int roundCount=1;
+        while(gameContinue)
+        {
+            System.out.println("TURN " + roundCount);            
+            endCount=0;
+            for(int i=0;i<playList.size();i++)
+            {
+                turn(playList.get(i));
+                if(!playList.get(i).getDone()) System.out.println("On Tile " + playList.get(i).getSpaceNum() + ".");
+                System.out.println();
+                if(playList.get(i).getSpaceNum()>=62)
+                {
+                    endCount++;
+                    playList.get(i).setDone();
+                }
+            }
+            if(endCount==(playList.size()))
+            {
+                gameContinue=false;
+            }
+            roundCount++;
+        }
+        runEndSeq();
+        /*System.out.println("TURN 1");
         turn(playList.get(0));
         turn(playList.get(1));
         System.out.println("TURN 2");
@@ -93,7 +122,33 @@ public class GameBrain
         turn(playList.get(1)); 
         System.out.println("TURN 4");
         turn(playList.get(0));
-        turn(playList.get(1));        
+        turn(playList.get(1)); 
+        
+        System.out.println(b.getSpaceList().size());*/
+    }
+    public void runEndSeq()
+    {
+        System.out.println("GAME IS OVER.");
+        for(int i=0;i<playList.size();i++)
+        {
+            System.out.println(playList.get(i).getName() + " has $" + playList.get(i).getMoney() + " + $" + playList.get(i).getSecret() + " from LIFE Tiles = $" + playList.get(i).getTotalMoney());
+        }
+        System.out.println("Thus, the winner is " + whoWon() + "!");
+        System.out.println("Congrats and thanks for playing!");
+    }
+    public String whoWon()
+    {
+        String returnWon=playList.get(0).getName();
+        int currentAmt=playList.get(0).getTotalMoney();
+        for(int i=1;i<playList.size();i++)
+        {
+            if(playList.get(i).getTotalMoney()>currentAmt)
+            {
+                returnWon=playList.get(i).getName();
+                currentAmt=playList.get(i).getTotalMoney();
+            }
+        }
+        return returnWon;
     }
     public void fitFont(JLabel label)
     {
@@ -122,8 +177,6 @@ public class GameBrain
     
     public void addPlayer(boolean male, String name)
     {
-        //method to ask about players and genders
-        //for now we will hardcode
         playList.add(new Player(male, name));
         
     }
@@ -133,7 +186,8 @@ public class GameBrain
         Scanner s = new Scanner(System.in);        
         for(int i=0;i<playList.size();i++)
         {
-            System.out.println("Player " + (i+1) + ", college or career(0,1)");
+            System.out.println();
+            System.out.println("Player " + playList.get(i).getName() + ", college or career(0,1)");
             if(s.nextInt()==0)
             {
                 playList.get(i).setCollege(true);
@@ -146,21 +200,23 @@ public class GameBrain
     }
     public void turn(Player p)
     {
-        System.out.println(); 
-        nameL.setText(p.getName());
-        System.out.println("Player " + p.getName() + ":");
-        int spaceNum = w.spin(); 
-        System.out.println("You spun " + spaceNum);
-
-        spaceNum = b.checkForRed(spaceNum,p);
-        b.checkForGreen(spaceNum, p);
-        
-        p.addSpace(spaceNum);
-        b.actionFromSpace(p.getSpaceNum(), p);
-        //p.checkForAction();
-        System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
-        System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
-        System.out.println();
-        
+        if(!p.getDone())
+        {
+            System.out.println(); 
+            nameL.setText(p.getName());
+            System.out.println("Player " + p.getName() + ":");
+            int spaceNum = w.spin(); 
+            System.out.println("You spun " + spaceNum);
+    
+            spaceNum = b.checkForRed(spaceNum,p);
+            b.checkForGreen(spaceNum, p);
+            
+            p.addSpace(spaceNum);
+            b.actionFromSpace(p.getSpaceNum(), p);
+            //p.checkForAction();
+            System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
+            System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
+            //System.out.println();
+        } else System.out.println("Player " + p.getName() + " is done.");
     }
 }

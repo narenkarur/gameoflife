@@ -63,7 +63,16 @@ public class RedSpace extends Space
                 houseBinary = 1;
                 careerBinary=0;                
                 break;
-            }        
+            }    
+            case 5:
+            {
+                text="Retire. Collect $10,000 retirement from each child.";
+                raise=0;
+                amt=0;
+                houseBinary=0;
+                careerBinary=0;
+                break;
+            }
             case 100:
             {
                 text = "Stop. Choose a College Career.";
