@@ -31,16 +31,17 @@ public class Board
         createCareerList();
         createHouseList();
     }
-    
+
     public ArrayList<Space> getCollegeList()
     {
         return collegeList;
     }
+
     public ArrayList<Space> getSpaceList()
     {
         return spaceList;
     }    
-    
+
     public void initializeFirstSpaces()
     {
         //HARD CODE BOARD
@@ -312,15 +313,21 @@ public class Board
         } else if(type==4)
         {
             System.out.println(text);
-            p.raise(values[0]);
-            System.out.println("Your salary is raised by $" + values[0]);
-            System.out.println("Adding " + values[1] + " into account");
-            p.addMoney(values[1]);
-            if(values[1]==1)
+            if(values[0]!=0)
+            {
+                p.raise(values[0]);
+                System.out.println("Your salary is raised by $" + values[0]);
+            }
+            if(values[1]!=0)
+            {
+                System.out.println("Adding " + values[1] + " into account");
+                p.addMoney(values[1]);
+            }
+            if(values[2]==1)
             {
                 runHouse(p);
             }
-            if(values[2]==1)
+            if(values[3]==1)
             {
                 chooseCareer(p);
             }            
@@ -334,7 +341,7 @@ public class Board
 
     public void actionFromSpace(int spaceNum, Player p)
     {
-        if(spaceNum<5)
+        if(spaceNum<6)
         {
             if(p.getCollege())
             {
@@ -360,7 +367,7 @@ public class Board
     {
         //if there is not a red(check between p.currentspace and p.currentspace+spaceNum), return spaceNum,
         //if there is a red, return the distance from currentspace to re
-        if(p.getSpaceNum()<6)
+        if(p.getSpaceNum()<5)
         {
             if(p.getCollege())
             {
@@ -368,7 +375,7 @@ public class Board
                 {
                     if(collegeList.get(i).getType()==4)
                     {
-                        return i-p.getSpaceNum();
+                        return i-p.getSpaceNum()+1;
                     }
                 }                
             }

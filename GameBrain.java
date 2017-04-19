@@ -24,7 +24,7 @@ public class GameBrain
     int fH;
     JLabel nameL;
     JPanel mainP,actionP,playerP,infoP;
-    
+
     /**
      * Constructor for objects of class GameBrain
      */
@@ -35,17 +35,17 @@ public class GameBrain
         fr=new JFrame("LIFE");
         fr.setSize(fW,fH);
         fr.getContentPane().setLayout(new BorderLayout());
-        
+
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         mainP.setLayout(new BorderLayout());
         mainP.setPreferredSize(new Dimension(700, 700));    
-        
+
         JPanel actionP = new JPanel();
         actionP.setBorder(BorderFactory.createLineBorder(Color.red));
         actionP.setLayout(new BorderLayout());
         actionP.setPreferredSize(new Dimension(1100,150));
-        
+
         JPanel playerP = new JPanel();
         playerP.setBorder(BorderFactory.createLineBorder(Color.green));
         playerP.setLayout(new BorderLayout());
@@ -64,10 +64,10 @@ public class GameBrain
         infoP.setLayout(new GridLayout(1,5));
         playerP.add(infoP,BorderLayout.CENTER);
         //spun, kids, spouses, balance, life cards
-        
+
         //mainP.setMaximumSize(mainP.getPreferredSize());
         //mainP.setMinimumSize(new Dimension(390, 190));
-        
+
         fr.add(mainP,BorderLayout.WEST);
         fr.add(actionP,BorderLayout.SOUTH);
         fr.add(playerP,BorderLayout.EAST);
@@ -78,7 +78,7 @@ public class GameBrain
         fr.pack();
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        
+
         addPlayer(true, "Ryan");
         addPlayer(false, "Naren");
         choosePath();
@@ -89,39 +89,41 @@ public class GameBrain
         turn(playList.get(0));
         turn(playList.get(1));        
     }
+
     public void fitFont(JLabel label)
     {
         Font labelFont = label.getFont();
         String labelText = label.getText();
-        
+
         int stringWidth = label.getFontMetrics(labelFont).stringWidth(labelText);
         int componentWidth = label.getWidth();
-        
+
         // Find out how much the font can grow in width.
         double widthRatio = (double)componentWidth / (double)stringWidth;
-        
+
         int newFontSize = (int)(labelFont.getSize() * widthRatio);
         int componentHeight = label.getHeight();
-        
+
         // Pick a new font size so it will not be larger than the height of label.
         int fontSizeToUse = Math.min(newFontSize, componentHeight);
-        
+
         // Set the label's font size to the newly determined size.
         label.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
     }
+
     public void buildUI()
     {
-                
+
     }    
-    
+
     public void addPlayer(boolean male, String name)
     {
         //method to ask about players and genders
         //for now we will hardcode
         playList.add(new Player(male, name));
-        
+
     }
-    
+
     public void choosePath()
     {
         Scanner s = new Scanner(System.in);        
@@ -138,6 +140,7 @@ public class GameBrain
             }
         }
     }
+
     public void turn(Player p)
     {
         System.out.println(); 
@@ -148,12 +151,12 @@ public class GameBrain
 
         spaceNum = b.checkForRed(spaceNum,p);
         b.checkForGreen(spaceNum, p);
-        
+
         p.addSpace(spaceNum);
         b.actionFromSpace(p.getSpaceNum(), p);
         //p.checkForAction();
         System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
         System.out.println();
-        
+
     }
 }

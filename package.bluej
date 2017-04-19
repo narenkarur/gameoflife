@@ -77,25 +77,8 @@ target13.showInterface=false
 target13.type=ClassTarget
 target13.typeParameters=
 target13.width=80
-<<<<<<< HEAD
-target13.x=200
-target13.y=180
-=======
 target13.x=440
 target13.y=50
-target14.editor.height=700
-target14.editor.width=900
-target14.editor.x=93
-target14.editor.y=80
-target14.height=50
-target14.name=Engine
-target14.showInterface=false
-target14.type=ClassTarget
-target14.typeParameters=
-target14.width=80
-target14.x=200
-target14.y=180
->>>>>>> origin/master
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=0
@@ -145,28 +128,23 @@ target5.y=250
 target6.editor.height=700
 target6.editor.width=900
 target6.editor.x=0
-target6.editor.y=23
+target6.editor.y=2
 target6.height=50
 target6.name=Board
-target6.naviview.expanded=false
+target6.naviview.expanded=true
 target6.showInterface=false
 target6.type=ClassTarget
 target6.typeParameters=
 target6.width=80
-target6.x=470
-target6.y=340
+target6.x=100
+target6.y=10
 target7.height=50
-<<<<<<< HEAD
 target7.name=Peg
-=======
-target7.name=Board
-target7.naviview.expanded=true
->>>>>>> origin/master
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
 target7.width=80
-target7.x=100
+target7.x=290
 target7.y=10
 target8.editor.height=700
 target8.editor.width=900

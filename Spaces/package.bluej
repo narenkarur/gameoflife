@@ -92,13 +92,8 @@ target6.x=170
 target6.y=180
 target7.editor.height=700
 target7.editor.width=900
-<<<<<<< HEAD
-target7.editor.x=466
-target7.editor.y=23
-=======
 target7.editor.x=60
 target7.editor.y=38
->>>>>>> origin/master
 target7.height=50
 target7.name=LifeSpace
 target7.naviview.expanded=false
