@@ -15,6 +15,7 @@ public class Player
     String house;
     int kidCount;
     int lifeTileNumber;
+    boolean isDone;
     public Player(boolean m, String n)
     {
         car = new Car();
@@ -141,6 +142,18 @@ public class Player
     public void addLife(int x)
     {
         lifeTileNumber+=x;
+    }
+    public void setDone()
+    {
+        isDone=true;
+    }
+    public boolean getDone()
+    {
+        return isDone;
+    }
+    public int getTotalMoney()
+    {
+        return money+secret;
     }
     //add getters and setters
     //add space method: takes current space and adds space
