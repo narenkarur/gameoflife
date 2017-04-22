@@ -254,12 +254,12 @@ public class Board
         spaceList.add(new OrangeSpace(20));
         spaceList.add(new LifeSpace(9));
         spaceList.add(new GreenSpace(12));
-        spaceList.add(new LifeSpace(10));   
+        spaceList.add(new LifeSpace(10));
         spaceList.add(new BlueSpace(4));
         spaceList.add(new LifeSpace(11));
         spaceList.add(new GreenSpace(13));
         spaceList.add(new OrangeSpace(21));
-        spaceList.add(new RedSpace(5));      
+        spaceList.add(new RedSpace(5));   //62 spaces total   
         //spaceList.add(new GreenSpace(constructor stuff));
     }
 
@@ -314,12 +314,10 @@ public class Board
         {
             System.out.println(text);
             if(values[0]!=0)
-<<<<<<< HEAD
             p.raise(values[0]);
             System.out.println("Your salary is raised by $" + values[0]);
             System.out.println("Adding " + values[1] + " into account");
             p.addMoney(values[1]);
-=======
             {
                 p.raise(values[0]);
                 System.out.println("Your salary is raised by $" + values[0]);
@@ -336,7 +334,6 @@ public class Board
                     p.addMoney(values[1]);
                 }
             }
->>>>>>> origin/master
             if(values[2]==1)
             {
                 p.raise(values[0]);
