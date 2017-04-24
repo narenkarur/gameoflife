@@ -22,6 +22,7 @@ public class GameBrain
     JFrame fr;
     int fW;
     int fH;
+    BoardComponent boardUI;
     Scanner read = new Scanner(System.in);
     String spinwhatever;
     /**
