@@ -22,62 +22,26 @@ public class GameBrain
     JFrame fr;
     int fW;
     int fH;
-    JLabel nameL;
-    JPanel mainP,actionP,playerP,infoP;
-
+    Scanner read = new Scanner(System.in);
+    String spinwhatever;
     /**
      * Constructor for objects of class GameBrain
      */
     public GameBrain(int x, int y, ArrayList<Boolean> genderList, ArrayList<String> nameList)
     {
+        
+        /*
+         * I'm moving the UI panel stuff to boardcomponent class which extends jcomponent and 
+         * implements actionlistener so that the stuff can be refreshed and can move
+         */
+        
         fW=x;
         fH=y;
         fr=new JFrame("LIFE");
         fr.setSize(fW,fH);
         fr.getContentPane().setLayout(new BorderLayout());
-
-        mainP = new JPanel();
-        mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
-        mainP.setLayout(new BorderLayout());
-        mainP.setPreferredSize(new Dimension(700, 700));    
-
-        JPanel actionP = new JPanel();
-        actionP.setBorder(BorderFactory.createLineBorder(Color.red));
-        actionP.setLayout(new BorderLayout());
-        actionP.setPreferredSize(new Dimension(1100,150));
-
-        JPanel playerP = new JPanel();
-        playerP.setBorder(BorderFactory.createLineBorder(Color.green));
-        playerP.setLayout(new BorderLayout());
-        playerP.setPreferredSize(new Dimension(400,700));
-        //
-        nameL = new JLabel("  PLAYER CARD");
-        nameL.setPreferredSize(new Dimension(400, 80));        
-        playerP.add(nameL,BorderLayout.NORTH);
-        //nameL.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
-        nameL.setFont(new Font("Serif", Font.PLAIN, 50));
-        //fitFont(nameL);
-        //
-        infoP=new JPanel();
-        infoP.setBorder(BorderFactory.createLineBorder(Color.magenta));
-        infoP.setPreferredSize(new Dimension(400,620));
-        infoP.setLayout(new GridLayout(1,5));
-        playerP.add(infoP,BorderLayout.CENTER);
-        //spun, kids, spouses, balance, life cards
-
-        //mainP.setMaximumSize(mainP.getPreferredSize());
-        //mainP.setMinimumSize(new Dimension(390, 190));
-
-        fr.add(mainP,BorderLayout.WEST);
-        fr.add(actionP,BorderLayout.SOUTH);
-        fr.add(playerP,BorderLayout.EAST);
-        //fr.getContentPane().setBackground(Color.BLACK);
-        //fr.pack();
-        fr.setPreferredSize(new Dimension(fW, fH));
-        fr.setResizable(false);
-        fr.pack();
-        fr.setVisible(true);   
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        boardUI = new BoardComponent(fr);
+        
         
         for(int i=0;i<genderList.size();i++)
         {
@@ -93,6 +57,8 @@ public class GameBrain
             endCount=0;
             for(int i=0;i<playList.size();i++)
             {
+                System.out.println(playList.get(i).getName() + ", press 'enter' to spin.");
+                spinwhatever=read.nextLine();
                 turn(playList.get(i));
                 if(!playList.get(i).getDone()) System.out.println("On Tile " + playList.get(i).getSpaceNum() + ".");
                 System.out.println();
@@ -205,7 +171,7 @@ public class GameBrain
         if(!p.getDone())
         {
             System.out.println(); 
-            nameL.setText(p.getName());
+            boardUI.getNameL().setText(p.getName());
             System.out.println("Player " + p.getName() + ":");
             int spaceNum = w.spin(); 
             System.out.println("You spun " + spaceNum);
