@@ -172,9 +172,10 @@ public class GameBrain
         if(!p.getDone())
         {
             System.out.println(); 
-            boardUI.getNameL().setText(p.getName());
+            //boardUI.getNameL().setText(p.getName());
             System.out.println("Player " + p.getName() + ":");
             int spaceNum = w.spin(); 
+            boardUI.setText(p,spaceNum);            
             System.out.println("You spun " + spaceNum);
     
             spaceNum = b.checkForRed(spaceNum,p);

@@ -6,12 +6,14 @@ import java.awt.image.*;
 public class BoardComponent extends JComponent implements ActionListener
 {
     JLabel nameL;
-    JPanel mainP,actionP,playerP,infoP;
+    JPanel mainP,actionP,playerP,infoP,otherP,nameP;
     int fW;
     int fH;
-
+    JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL;
+    JFrame fr;
     public BoardComponent(JFrame fr)
     {
+        this.fr=fr;
         fW = fr.getWidth();
         fH = fr.getHeight();
 
@@ -53,7 +55,45 @@ public class BoardComponent extends JComponent implements ActionListener
         infoP=new JPanel();
         infoP.setBorder(BorderFactory.createLineBorder(Color.magenta));
         infoP.setPreferredSize(new Dimension(400,620));
-        infoP.setLayout(new GridLayout(1,5));
+        infoP.setLayout(new BorderLayout());
+        
+        nameP=new JPanel();
+        nameP.setBorder(BorderFactory.createLineBorder(Color.cyan));
+        nameP.setPreferredSize(new Dimension(400,70));
+        infoP.add(nameP,BorderLayout.NORTH);
+        
+        firstNameL=new JLabel("NAME");
+        firstNameL.setFont(new Font("Serif", Font.PLAIN, 50));
+        nameP.add(firstNameL);
+        
+        otherP=new JPanel();
+        otherP.setBorder(BorderFactory.createLineBorder(Color.orange));
+        otherP.setPreferredSize(new Dimension(400,550));
+        otherP.setLayout(new GridLayout(7,1));
+        
+        spinL=new JLabel("Spin Amt");
+        spinL.setFont(new Font("Serif", Font.PLAIN, 30));
+        otherP.add(spinL);        
+        kidL=new JLabel("Amount of Kids");
+        kidL.setFont(new Font("Serif", Font.PLAIN, 30));
+        otherP.add(kidL);
+        spouseL=new JLabel("Amount of Spouses");
+        spouseL.setFont(new Font("Serif", Font.PLAIN, 20));
+        otherP.add(spouseL);
+        houseL=new JLabel("Type of House");
+        houseL.setFont(new Font("Serif", Font.PLAIN, 20));
+        otherP.add(houseL);
+        jobL=new JLabel("Career Description");
+        jobL.setFont(new Font("Serif", Font.PLAIN, 20));
+        otherP.add(jobL);
+        balanceL=new JLabel("YOUR BALANCE");
+        balanceL.setFont(new Font("Serif", Font.PLAIN, 40));
+        otherP.add(balanceL);
+        tileL=new JLabel("Your Life Tile Amount");
+        tileL.setFont(new Font("Serif", Font.PLAIN, 30));
+        otherP.add(tileL);        
+        
+        infoP.add(otherP,BorderLayout.CENTER);
         playerP.add(infoP,BorderLayout.CENTER);
         //spun, kids, spouses, balance, life cards
 
@@ -130,5 +170,16 @@ public class BoardComponent extends JComponent implements ActionListener
     {
 
     }
-
+    public void setText(Player p, int spinNumber)
+    {
+        firstNameL.setText(p.getName());
+        spinL.setText("You spun: " + spinNumber);
+        kidL.setText("You have " + p.getKids() + " kids.");
+        spouseL.setText(p.getSpouseStatement());
+        houseL.setText(p.getHouseStatement());
+        jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
+        balanceL.setText("BALANCE: $" + p.getMoney());
+        tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        fr.setVisible(true);
+    }
 }

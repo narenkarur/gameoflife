@@ -16,6 +16,7 @@ public class Player
     int kidCount;
     int lifeTileNumber;
     boolean isDone;
+    boolean ifSpouse;
     public Player(boolean m, String n)
     {
         car = new Car();
@@ -26,6 +27,8 @@ public class Player
         money=0;
         career="";
         lifeTileNumber=0;
+        ifSpouse=false;
+        house="";
     }
     
     public void addSpace(int n)
@@ -154,6 +157,34 @@ public class Player
     public int getTotalMoney()
     {
         return money+secret;
+    }
+    public boolean getSpouse()
+    {
+        if(getSpaceNum()>=5)
+        {
+            ifSpouse=true;
+        }        
+        return ifSpouse;
+    }
+    public String getSpouseStatement()
+    {
+        if(getSpaceNum()>=5)
+        {
+            ifSpouse=true;
+        }
+        if(ifSpouse)
+        {
+            return("You are married.");
+        } else return ("You are not married, you fat loser.");
+    }
+    public void setSpouse(boolean b)
+    {
+        ifSpouse=b;
+    }
+    public String getHouseStatement()
+    {
+        if(house.equals("")) return ("You live with your mom. Loser");
+        else return("You live in a " + getHouse());
     }
     //add getters and setters
     //add space method: takes current space and adds space
