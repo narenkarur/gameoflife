@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.awt.image.*;
 
 public class BoardComponent extends JComponent implements ActionListener
 {
@@ -8,21 +9,29 @@ public class BoardComponent extends JComponent implements ActionListener
     JPanel mainP,actionP,playerP,infoP;
     int fW;
     int fH;
-    
+
     public BoardComponent(JFrame fr)
     {
         fW = fr.getWidth();
         fH = fr.getHeight();
-        
-        
+
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         //mainP.setLayout(new BorderLayout());
         mainP.setPreferredSize(new Dimension(700, 700));  
         JLabel boardL = new JLabel();
-        boardL.setIcon(new ImageIcon("Board.png"));
+        ImageIcon ic = new ImageIcon("Board.png");
+        Image im = ic.getImage();
+
+        BufferedImage bimage = new BufferedImage(im.getWidth(null), im.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D bGr = bimage.createGraphics();
+        bGr.drawImage(im, 0, 0, null);
+        bGr.dispose();
+
+        //BufferedImage image = (BufferedImage) im;
+        ImageIcon icon = resize(bimage,700,650,true);
+        boardL.setIcon(icon);
         mainP.add(boardL);
-        
 
         JPanel actionP = new JPanel();
         actionP.setBorder(BorderFactory.createLineBorder(Color.red));
@@ -62,35 +71,64 @@ public class BoardComponent extends JComponent implements ActionListener
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     }
-    
+
+    public static ImageIcon resize(BufferedImage imageIcon, double width, double height, boolean straight)//resizes the image to fit a space
+    {
+        BufferedImage bi;
+        if(straight)
+        {
+            bi = new BufferedImage((int) width, (int) height, BufferedImage.TRANSLUCENT);
+        } else
+        {
+            bi = new BufferedImage((int) (width*1.03357), (int) (height*1.10479), BufferedImage.TRANSLUCENT);
+        }
+        //constructs new bufferedimage with specefied explicit parameters and assigns it to bi
+        Graphics2D g2d = (Graphics2D) bi.createGraphics();//casts graphics of bi to graphics2D g2d
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING,
+                RenderingHints.VALUE_RENDER_QUALITY));
+        //invokes the addrenderinghints method on g2d with specified explicit parameters
+        if(straight)
+        {
+            g2d.drawImage((Image) imageIcon, 0, 0, (int) width, (int) height, null);
+        } else
+        {
+            g2d.drawImage((Image) imageIcon, 0, 0, (int) (width*1.03357),  (int) (height*1.10479), null);
+            //bi = new BufferedImage(,, BufferedImage.TRANSLUCENT);
+        }
+        //setting width/height in process
+        g2d.dispose();//invokes dispose method on g2d
+        Image icon = (Image) bi;//returns an imageIcon with bi
+        return new ImageIcon(icon);
+    }
+
     public JLabel getNameL()
     {
         return nameL;
     }
-    
+
     public JPanel getMainP()
     {
         return mainP;
     }
-    
+
     public JPanel getActionP()
     {
         return actionP;
     }
-    
+
     public JPanel getPlayerP()
     {
         return playerP;
     }
-    
+
     public JPanel getInfoP()
     {
         return infoP;
     }
-    
+
     public void actionPerformed(ActionEvent e)
     {
-        
+
     }
 
 }
