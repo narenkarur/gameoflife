@@ -1,7 +1,11 @@
 import java.util.ArrayList;
-public class Car
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.*;
+public class Car extends JComponent
 {
     ArrayList<Peg> pegs;
+    int x,y,w,wRat;
     public Car()
     {
         pegs = new ArrayList<Peg>();
@@ -16,5 +20,21 @@ public class Car
     {
         pegs.add(new Peg(male));
     }
+    
+    public void move(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+        repaint();
+    }
 
+    public void paintComponent(Graphics g)
+    {
+        Graphics2D g2 = (Graphics2D) g;
+        Rectangle2D.Double rect = new Rectangle2D.Double(x,y,w,w*wRat);
+        g2.draw(rect);
+        g2.setColor(Color.white);
+        g2.fill(rect);
+    }
+    
 }

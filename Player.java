@@ -186,6 +186,15 @@ public class Player
         if(house.equals("")) return ("You live with your mom. Loser");
         else return("You live in a " + getHouse());
     }
+    
+    public String getJobStatement()
+    {
+        if(career=="")
+        {
+            return "You are unemployed :(";
+        } else return "You are a " + getCareer() + " and earn $" + returnSalary() + ".";
+    }
+    
     //add getters and setters
     //add space method: takes current space and adds space
     

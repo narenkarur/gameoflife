@@ -177,9 +177,11 @@ public class BoardComponent extends JComponent implements ActionListener
         kidL.setText("You have " + p.getKids() + " kids.");
         spouseL.setText(p.getSpouseStatement());
         houseL.setText(p.getHouseStatement());
-        jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
+        jobL.setText(p.getJobStatement());
+        //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
         balanceL.setText("BALANCE: $" + p.getMoney());
         tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        repaint();
         fr.setVisible(true);
     }
 }
