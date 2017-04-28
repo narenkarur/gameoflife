@@ -192,6 +192,7 @@ public class BoardComponent extends JComponent implements ActionListener
         spouseL.setText(p.getSpouseStatement());
         houseL.setText(p.getHouseStatement());
         jobL.setText(p.getJobStatement());
+<<<<<<< HEAD
         balanceL.setText("BALANCE: $" + p.getMoney());
         tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
         actionL.setText(p.getAction());
@@ -211,6 +212,12 @@ public class BoardComponent extends JComponent implements ActionListener
             endP.add(new JLabel(putList.get(i)));
         }
         endP.add(new JLabel(line3));
+=======
+        //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
+        balanceL.setText("BALANCE: $" + p.getMoney());
+        tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        repaint();
+>>>>>>> origin/master
         fr.setVisible(true);
     }
 }

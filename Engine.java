@@ -26,14 +26,14 @@ public class Engine
         {
             System.out.println("Would you like to add a player? Y/N");
             addP=read.nextLine();
-            if(addP.equals("Y"))
+            if(addP.equals("Y")||addP.equals("y"))
             {
                 System.out.println("Enter name of player.");
                 nameP=read.nextLine();
                 sList.add(nameP);
                 System.out.println("Now enter gender. M/F");
                 genderS=read.nextLine();
-                if(genderS.equals("M")) gList.add(true);
+                if(genderS.equals("M")||genderS.equals("m")) gList.add(true);
                 else gList.add(false);
                 System.out.println();
             } else 
