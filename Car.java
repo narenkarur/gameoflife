@@ -9,6 +9,7 @@ public class Car extends JComponent
     public Car()
     {
         pegs = new ArrayList<Peg>();
+        wRat = 3;
     }
     
     /*
@@ -18,7 +19,21 @@ public class Car extends JComponent
      */
     public void addPeg(boolean male)
     {
-        pegs.add(new Peg(male));
+        int thisX;
+        int thisY;
+        int thisW = w/7;
+        if(pegs.size()%2==1)
+        {
+            thisX = x+thisW;
+        } else thisX = x+4*thisW;
+        if(pegs.size()<=2)
+        {
+            thisY = y+w*wRat-thisW;
+        } else if(pegs.size()<=4)
+        {
+            thisY = y+w*wRat-4*thisW;
+        } else thisY = y+w*wRat-7*thisW;
+        pegs.add(new Peg(male,thisX,thisY, 2*thisW));
     }
     
     public void move(int x, int y)
@@ -31,6 +46,11 @@ public class Car extends JComponent
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
+        for(Peg p : pegs)
+        {
+            p.draw(g2);
+            
+        }
         Rectangle2D.Double rect = new Rectangle2D.Double(x,y,w,w*wRat);
         g2.draw(rect);
         g2.setColor(Color.white);

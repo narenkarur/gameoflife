@@ -25,98 +25,98 @@ public class LifeSpace extends Space
         {
             case 0:
             {
-                text= "Volunteer at soup kitchen.";
+                text= "LIFE TILE: Volunteer at soup kitchen.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 1:
             {
-                text= "Happy Honeymoon!";
+                text= "LIFE TILE: Happy Honeymoon!";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 2:
             {
-                text= "Baby Boy!";
+                text= "LIFE TILE: Baby Boy!";
                 amount = setAmount();
                 kidsBinary = 1;
                 break;
             }
             case 3:
             {
-                text= "Vote!!!";
+                text= "LIFE TILE: Vote!!!";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 4:
             {
-                text= "Baby Girl!";
+                text= "LIFE TILE: Baby Girl!";
                 amount = setAmount();
                 kidsBinary = 1;
                 break;
             }
             case 5:
             {
-                text= "Adopt twins!!";
+                text= "LIFE TILE: Adopt twins!!";
                 amount = setAmount();
                 kidsBinary = 2;
                 break;
             }
             case 6:
             {
-                text= "Run for Congress.";
+                text= "LIFE TILE: Run for Congress.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 7:
             {
-                text= "Donate to African Orphans.";
+                text= "LIFE TILE: Donate to African Orphans.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 8:
             {
-                text= "Visit Pyramids in Egypt.";
+                text= "LIFE TILE: Visit Pyramids in Egypt.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 9:
             {
-                text= "You're a grandparent!";
+                text= "LIFE TILE: You're a grandparent!";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 10:
             {
-                text= "Go hiking in the Australian Alps.";
+                text= "LIFE TILE: Go hiking in the Australian Alps.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 11:
             {
-                text= "Visit Great Wall of China.";
+                text= "LIFE TILE: Visit Great Wall of China.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 12:
             {
-                text= "You're a grandparent!";
+                text= "LIFE TILE: You're a grandparent!";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
             }
             case 100:
             {
-                text= "Make new friends for life.";
+                text= "LIFE TILE: Make new friends for life.";
                 amount = setAmount();
                 kidsBinary = 0;
                 break;
