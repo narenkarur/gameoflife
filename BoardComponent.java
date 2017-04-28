@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.awt.image.*;
-
+import java.util.ArrayList;
 public class BoardComponent extends JComponent implements ActionListener
 {
     JLabel nameL;
     JPanel mainP,actionP,playerP,infoP,otherP,nameP;
     int fW;
     int fH;
-    JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL;
+    JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL,actionL;
     JFrame fr;
     public BoardComponent(JFrame fr)
     {
@@ -39,6 +39,17 @@ public class BoardComponent extends JComponent implements ActionListener
         actionP.setBorder(BorderFactory.createLineBorder(Color.red));
         actionP.setLayout(new BorderLayout());
         actionP.setPreferredSize(new Dimension(1100,150));
+        
+        JPanel infoActionP = new JPanel();
+        infoActionP.setBorder(BorderFactory.createLineBorder(Color.cyan));
+        infoActionP.setPreferredSize(new Dimension(950,150));
+        infoActionP.setLayout(new BorderLayout());
+        actionP.add(infoActionP,BorderLayout.WEST);
+        actionL = new JLabel("WHERE YOU ARE");
+        actionL.setPreferredSize(new Dimension(950,150));
+        infoActionP.add(actionL,BorderLayout.CENTER);
+        actionL.setFont(new Font("Serif", Font.PLAIN, 40));
+        
 
         JPanel playerP = new JPanel();
         playerP.setBorder(BorderFactory.createLineBorder(Color.green));
@@ -173,13 +184,33 @@ public class BoardComponent extends JComponent implements ActionListener
     public void setText(Player p, int spinNumber)
     {
         firstNameL.setText(p.getName());
-        spinL.setText("You spun: " + spinNumber);
+        if(p.getDone())
+        {
+            spinL.setText("YOU HAVE FINISHED!");
+        } else spinL.setText("You spun: " + spinNumber);
         kidL.setText("You have " + p.getKids() + " kids.");
         spouseL.setText(p.getSpouseStatement());
         houseL.setText(p.getHouseStatement());
-        jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
+        jobL.setText(p.getJobStatement());
         balanceL.setText("BALANCE: $" + p.getMoney());
         tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        actionL.setText(p.getAction());
+        fr.setVisible(true);
+    }
+    public void setEndText(String line1,String line2,String line3,ArrayList<String> putList)
+    {
+        infoP.removeAll();
+        JPanel endP = new JPanel();
+        endP.setLayout(new GridLayout(3+putList.size(),1));
+        JLabel l1 = new JLabel(line1);
+        endP.add(l1);
+        JLabel l2 = new JLabel(line2);
+        endP.add(l2);
+        for(int i=0;i<putList.size();i++)
+        {
+            endP.add(new JLabel(putList.get(i)));
+        }
+        endP.add(new JLabel(line3));
         fr.setVisible(true);
     }
 }

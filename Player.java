@@ -17,6 +17,7 @@ public class Player
     int lifeTileNumber;
     boolean isDone;
     boolean ifSpouse;
+    String action;
     public Player(boolean m, String n)
     {
         car = new Car();
@@ -29,6 +30,7 @@ public class Player
         lifeTileNumber=0;
         ifSpouse=false;
         house="";
+        action="";
     }
     
     public void addSpace(int n)
@@ -183,10 +185,27 @@ public class Player
     }
     public String getHouseStatement()
     {
-        if(house.equals("")) return ("You live with your mom. Loser");
+        if(house.equals("")) return ("You live with your mom. Loser.");
         else return("You live in a " + getHouse());
+    }
+    public String getJobStatement()
+    {
+        if(career.equals(""))
+        {
+            return("You are unemployed, haha.");
+        } else
+        {
+            return("You are a " + career + " and earn $" + salary + ".");
+        }
     }
     //add getters and setters
     //add space method: takes current space and adds space
-    
+    public String getAction()
+    {
+        return action;
+    }
+    public void setAction(String s)
+    {
+        action=s;
+    }
 }

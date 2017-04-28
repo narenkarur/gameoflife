@@ -31,7 +31,24 @@ public class Board
         createCareerList();
         createHouseList();
     }
-
+    
+    public String getTheAction(Player p)
+    {
+        if(p.getSpaceNum()<5)
+        {
+            if(p.getCollege())
+            {
+                return collegeList.get(p.getSpaceNum()).returnText();
+            } else
+            {
+                return spaceList.get(p.getSpaceNum()).returnText();
+            }
+        } else
+        {
+            return spaceList.get(p.getSpaceNum()).returnText();
+        }
+    }
+    
     public ArrayList<Space> getCollegeList()
     {
         return collegeList;
@@ -266,6 +283,7 @@ public class Board
     public void runSpaceMethod(int type, int[] values, String text,Player p)    
     {
         //change player stuff here
+        //p.setAction(text);
         if(type==1)
         {
             System.out.println(text);
