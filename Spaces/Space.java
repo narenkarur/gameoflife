@@ -11,24 +11,39 @@ public class Space
      */
     int[] blah;
     String text;
+    int xPos;
+    int yPos;
     public Space()
     {
-        
+
     }//construct
-    
+
     public int[] returnSpaceMethod()//Player p)
     {
         return blah;
     }
-    
+
     public String returnText()
     {
         return text;
     }
+
     public int getType()
     {
         return 0;
     }
+    
+    public int getXPos()
+    {
+        return xPos;
+    }
+    
+    public int getYPos()
+    {
+        return yPos;
+    }
+    
+    
 }
 
 //ALSO SHOULD HAVE CONSTRUCTORS FOR HARDCODING PURPOSES (MAYE JUST A STRING, INT, ETC);

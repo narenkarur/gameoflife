@@ -29,7 +29,7 @@ public class OrangeSpace extends Space
                 amount = -5000;
                 houseBinary = 1;
                 careerBinary = 0;
-                 
+                xPos = 10+0*(700/14);
                 
                 break;
             }
@@ -39,7 +39,7 @@ public class OrangeSpace extends Space
                 amount = 20000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+2*(700/14);
                 
                 break;
             }
@@ -49,7 +49,7 @@ public class OrangeSpace extends Space
                 amount = -5000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+3*(700/14);
                 
                 break;
             }
@@ -59,7 +59,7 @@ public class OrangeSpace extends Space
                 amount = -10000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+8*(700/14);
                 
                 break;
             }
@@ -69,7 +69,7 @@ public class OrangeSpace extends Space
                 amount = 0;
                 houseBinary = 0;
                 careerBinary = 1;
-                 
+                 xPos = 10+11*(700/14);
                 
                 break;
             }
@@ -79,7 +79,7 @@ public class OrangeSpace extends Space
                 amount = 100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+11*(700/14);
                 
                 break;
             }
@@ -89,7 +89,7 @@ public class OrangeSpace extends Space
                 amount = -20000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+10*(700/14);
                 
                 break;
             }
@@ -99,7 +99,7 @@ public class OrangeSpace extends Space
                 amount = 0;
                 houseBinary = 0;
                 careerBinary = 1;
-                 
+                 xPos = 10+6*(700/14);
                 
                 break;
             }
@@ -109,7 +109,7 @@ public class OrangeSpace extends Space
                 amount = -40000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+4*(700/14);
                 
                 break;
             }
@@ -119,7 +119,7 @@ public class OrangeSpace extends Space
                 amount = 69;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+1*(700/14);
                 
                 break;
             }
@@ -129,7 +129,7 @@ public class OrangeSpace extends Space
                 amount = -69;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+0*(700/14);
                 
                 break;
             }
@@ -139,7 +139,7 @@ public class OrangeSpace extends Space
                 amount = 100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+1*(700/14);
                 
                 break;
             }
@@ -149,7 +149,7 @@ public class OrangeSpace extends Space
                 amount = -20000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+2*(700/14);
                 
                 break;
             }
@@ -159,7 +159,7 @@ public class OrangeSpace extends Space
                 amount = 69;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+4*(700/14);
                 
                 break;
             }
@@ -169,7 +169,7 @@ public class OrangeSpace extends Space
                 amount = -40000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+6*(700/14);
                 
                 break;
             }
@@ -179,7 +179,7 @@ public class OrangeSpace extends Space
                 amount = -50000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+11*(700/14);
                 
                 break;
             }
@@ -189,7 +189,7 @@ public class OrangeSpace extends Space
                 amount = -100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+12*(700/14);
                 
                 break;
             }
@@ -199,7 +199,7 @@ public class OrangeSpace extends Space
                 amount = 100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+11*(700/14);
                 
                 break;
             }
@@ -209,7 +209,7 @@ public class OrangeSpace extends Space
                 amount = 200000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+8*(700/14);
                 
                 break;
             }
@@ -219,7 +219,7 @@ public class OrangeSpace extends Space
                 amount = -69;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+5*(700/14);
                 
                 break;
             }
@@ -229,7 +229,7 @@ public class OrangeSpace extends Space
                 amount = -100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+1*(700/14);
                 
                 break;
             }
@@ -239,7 +239,7 @@ public class OrangeSpace extends Space
                 amount = 100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 10+4*(700/14);
                 
                 break;
             }
@@ -249,7 +249,7 @@ public class OrangeSpace extends Space
                 amount = -100000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 1*(700/14);
                 
                 break;
             }
@@ -259,7 +259,7 @@ public class OrangeSpace extends Space
                 amount = 10000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 2*(700/14);
                 
                 break;
             }
@@ -269,7 +269,7 @@ public class OrangeSpace extends Space
                 amount = -5000;
                 houseBinary = 0;
                 careerBinary = 0;
-                 
+                 xPos = 4*(700/14);
                 
                 break;
             }           
