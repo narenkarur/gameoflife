@@ -25,6 +25,7 @@ public class GameBrain
     BoardComponent boardUI;
     Scanner read = new Scanner(System.in);
     String spinwhatever;
+    String go="";
     /**
      * Constructor for objects of class GameBrain
      */
@@ -93,13 +94,18 @@ public class GameBrain
     }
     public void runEndSeq()
     {
-        System.out.println("GAME IS OVER.");
+        String line1="GAME IS OVER.";
+        ArrayList<String> putList = new ArrayList<String>();
+        String putStuff="";
         for(int i=0;i<playList.size();i++)
         {
             System.out.println(playList.get(i).getName() + " has $" + playList.get(i).getMoney() + " + $" + playList.get(i).getSecret() + " from LIFE Tiles = $" + playList.get(i).getTotalMoney());
+            putStuff=(playList.get(i).getName() + " has $" + playList.get(i).getMoney() + " + $" + playList.get(i).getSecret() + " from LIFE Tiles = $" + playList.get(i).getTotalMoney());
+            putList.add(putStuff);
         }
-        System.out.println("Thus, the winner is " + whoWon() + "!");
-        System.out.println("Congrats and thanks for playing!");
+        String line2=("Thus, the winner is " + whoWon() + "!");
+        String line3=("Congrats and thanks for playing!");
+        boardUI.setEndText(line1,line2,line3,putList);
     }
     public String whoWon()
     {
@@ -175,7 +181,9 @@ public class GameBrain
             //boardUI.getNameL().setText(p.getName());
             System.out.println("Player " + p.getName() + ":");
             int spaceNum = w.spin(); 
-            boardUI.setText(p,spaceNum);            
+            p.setAction(b.getTheAction(p));
+            int firstSpaceNum=spaceNum;
+            boardUI.setText(p,firstSpaceNum);            
             System.out.println("You spun " + spaceNum);
     
             spaceNum = b.checkForRed(spaceNum,p);
@@ -187,6 +195,8 @@ public class GameBrain
             System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
             System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
             //System.out.println();
+            go=read.nextLine(); //prompt go
+            boardUI.setText(p,firstSpaceNum);
         } else System.out.println("Player " + p.getName() + " is done.");
     }
 }
