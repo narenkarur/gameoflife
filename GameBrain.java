@@ -155,7 +155,7 @@ public class GameBrain
         {
             System.out.println();
             System.out.println("Player " + playList.get(i).getName() + ", college or career(0,1)");
-            if(s.nextInt()==0)
+            if(s.nextLine().equals("0"))
             {
                 playList.get(i).setCollege(true);
             } else 
