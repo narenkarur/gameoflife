@@ -21,20 +21,20 @@ public class BoardComponent extends JComponent
         this.fr=fr;
         fW = fr.getWidth();
         fH = fr.getHeight();
-        
-        Car c = new Car(fr);
-        fr.add(c);
-        fr.setVisible(true);
-        
+
+        //         Car car = new Car(fr);
+        //         fr.add(car);
+        //         fr.setVisible(true);
+        //         fr.setComponentZOrder(car,0);
+
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         //mainP.setLayout(new BorderLayout());
         mainP.setPreferredSize(new Dimension(700, 700));  
         pane = new JLayeredPane();
         JLabel boardL = new JLabel();
-        pane.add(boardL, new Integer(5));
-        
-        
+        pane.add(boardL, new Integer(1));
+
         ImageIcon ic = new ImageIcon("Board.png");
         Image im = ic.getImage();
         BufferedImage bimage = new BufferedImage(im.getWidth(null), im.getHeight(null), BufferedImage.TYPE_INT_ARGB);
@@ -64,7 +64,6 @@ public class BoardComponent extends JComponent
         greenL = new JLabel();
         infoActionP.add(greenL,BorderLayout.NORTH);
         greenL.setFont(new Font("Serif", Font.PLAIN, 20));
-        
 
         JPanel playerP = new JPanel();
         playerP.setBorder(BorderFactory.createLineBorder(Color.green));
@@ -149,11 +148,13 @@ public class BoardComponent extends JComponent
     {
         
     }
+
+
     public void addCars(ArrayList<Player> list)
     {
         for(Player p : list)
         {
-            p.addCar(pane);
+            p.addCar(fr);
         }
     }
 
@@ -280,7 +281,6 @@ public class BoardComponent extends JComponent
         endF.pack();
         endF.setVisible(true);   
         endF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         
-     
 
     }
     public void setTextSequence(String s, Player p)
@@ -293,11 +293,13 @@ public class BoardComponent extends JComponent
             repaint();
             fr.setVisible(true);
     }
+
     public void setSpinSequence(int spinAmt)
     {
         spinL.setText("You spun: " + spinAmt);
         fr.setVisible(true);
     }
+
     public void setGreen(int x, Player p)
     {
         if(x>0)

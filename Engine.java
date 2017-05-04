@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.*;
+import java.awt.Color;
 /**
  * Write a description of class Egine here.
  * 
@@ -63,11 +64,14 @@ public class Engine
     {
         JFrame frame = new JFrame();
         frame.setSize(500,500);
-        Car car = new Car(frame);
+        Car car = new Car(frame, Color.blue);
         car.addPeg(true);
         car.addPeg(false);
         car.addPeg(true);
         car.addPeg(false);
+        car.addPeg(true);
+        car.addPeg(false);
+        
         frame.add(car);
         frame.setVisible(true);
         //Peg p = new Peg(true, 10,10,10);

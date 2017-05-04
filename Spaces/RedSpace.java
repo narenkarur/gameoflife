@@ -12,6 +12,7 @@ public class RedSpace extends Space
     int amt;
     int houseBinary;
     int careerBinary;
+    int startX = 30;
     //RETURN EITHER A 1 (CAREER), 2 (CAR), 3(HOUSE CHANGE) IN RETURNSPACEMETHOD 
     
     
@@ -26,6 +27,8 @@ public class RedSpace extends Space
                 amt = 0;
                 houseBinary = 0;
                 careerBinary=0;
+                xPos = startX+6*(700/14);
+                yPos = 40;
                 break;
             }
             case 1:
@@ -35,6 +38,8 @@ public class RedSpace extends Space
                 amt = 0;
                 houseBinary = 1;
                 careerBinary=0;
+                xPos = startX+10*(700/14);
+                yPos = 40;
                 break;
             }
             case 2:
@@ -44,6 +49,8 @@ public class RedSpace extends Space
                 amt = -20;
                 houseBinary = 0;
                 careerBinary=0;
+                xPos = startX+5*(700/14);
+                yPos = 40;
                 break;
             }
             case 3:
@@ -53,6 +60,8 @@ public class RedSpace extends Space
                 amt = 0;
                 houseBinary = 0;
                 careerBinary=0;
+                xPos = startX+9*(700/14);
+                yPos = 40;
                 break;
             }
             case 4:
@@ -61,7 +70,9 @@ public class RedSpace extends Space
                 raise=10000;
                 amt = 0;
                 houseBinary = 1;
-                careerBinary=0;                
+                careerBinary=0; 
+                xPos = startX+10*(700/14);
+                yPos = 40;
                 break;
             }    
             case 5:
@@ -71,6 +82,8 @@ public class RedSpace extends Space
                 amt=0;
                 houseBinary=0;
                 careerBinary=0;
+                xPos = startX+5*(700/14);
+                yPos = 40;
                 break;
             }
             case 100:
@@ -80,6 +93,8 @@ public class RedSpace extends Space
                 amt = 0;
                 houseBinary = 0;
                 careerBinary=1;
+                xPos = startX+5*(700/14);
+                yPos = 40;
                 break;
             }              
         }

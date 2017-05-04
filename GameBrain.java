@@ -51,7 +51,7 @@ public class GameBrain implements ActionListener
 
         for(int i=0;i<genderList.size();i++)
         {
-            addPlayer(genderList.get(i),nameList.get(i));
+            addPlayer(genderList.get(i),nameList.get(i),i);
         }
         
         goB=new JButton("START");
@@ -61,12 +61,18 @@ public class GameBrain implements ActionListener
         goB.setFont(new Font("Arial", Font.PLAIN, 30));
         boardUI = new BoardComponent(fr, playList,goB);
         //boardUI.passButton(goB);
+        boardUI.addCars(playList);
         
         choosePath();
         //int endCount=0;
         /*
         boolean gameContinue=true;
+        <<<<<<< HEAD
         //int roundCount=1;
+        =======
+        int roundCount=1;
+        b.testSpaces(playList.get(0));
+        >>>>>>> origin/master
         while(gameContinue)
         {
             System.out.println("TURN " + roundCount);
@@ -166,9 +172,9 @@ public class GameBrain implements ActionListener
 
     }    
 
-    public void addPlayer(boolean male, String name)
+    public void addPlayer(boolean male, String name, int pNum)
     {
-        playList.add(new Player(male, name, fr));
+        playList.add(new Player(male, name, fr, pNum));
 
     }
 

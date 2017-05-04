@@ -7,6 +7,7 @@ public class BlueSpace extends Space
 {
     int amount;
     String text;
+    int startX = 30;
     public BlueSpace(int which)
     {
         switch(which)
@@ -14,26 +15,36 @@ public class BlueSpace extends Space
             case 0:
             {
                 amount = 100000;
+                xPos = startX+7*(700/14);
+                yPos = 40;
                 break;
             }
             case 1:
             {
                 amount = 100000;
+                xPos = startX+8*(700/14);
+                yPos = 40;
                 break;
             }
             case 2:
             {
                 amount = 100000;
+                xPos = startX+12*(700/14);
+                yPos = 40;
                 break;
             }
             case 3:
             {
                 amount = 200000;
+                xPos = startX+7*(700/14);
+                yPos = 40;
                 break;
             }
             case 4:
             {
                 amount = 100000;
+                xPos = startX+1*(700/14);
+                yPos = 40;
                 break;
             }
         }
@@ -46,7 +57,7 @@ public class BlueSpace extends Space
 
     public String returnText()
     {
-        return "Lawsuit! Sue another player for $" + amount + ".";
+        return "Lawsuit! You are sued for $" + amount + ".";
     }  
     
     public int getType()
