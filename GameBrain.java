@@ -4,6 +4,7 @@ import java.util.Scanner;
 //import model.*;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 /**
  * Write a description of class GameBrain here.
@@ -11,7 +12,7 @@ import javax.swing.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameBrain
+public class GameBrain implements ActionListener
 {
     // instance variables - replace the example below with your own
     public int playerNum;
@@ -25,7 +26,12 @@ public class GameBrain
     BoardComponent boardUI;
     Scanner read = new Scanner(System.in);
     String spinwhatever;
+    JButton goB;
     String go="";
+    int roundCount=1;
+    int currentPlayer=0;
+    int endCount=0;
+    int stage=1;
     /**
      * Constructor for objects of class GameBrain
      */
@@ -47,27 +53,36 @@ public class GameBrain
         {
             addPlayer(genderList.get(i),nameList.get(i));
         }
-        boardUI = new BoardComponent(fr, playList);
+        
+        goB=new JButton("START");
+        goB.addActionListener(this);
+        //goB.setLayout(null);
+        goB.setPreferredSize(new Dimension(150,150));
+        goB.setFont(new Font("Arial", Font.PLAIN, 30));
+        boardUI = new BoardComponent(fr, playList,goB);
+        //boardUI.passButton(goB);
         
         choosePath();
-        int endCount=0;
+        //int endCount=0;
+        /*
         boolean gameContinue=true;
-        int roundCount=1;
+        //int roundCount=1;
         while(gameContinue)
         {
             System.out.println("TURN " + roundCount);
-            endCount=0;
+            //endCount=0;
             for(int i=0;i<playList.size();i++)
             {
                 boardUI.setText(playList.get(i),0,1);
                 System.out.println(playList.get(i).getName() + ", press 'enter' to spin.");
+                //boardUI.falseContinue();
                 spinwhatever=read.nextLine();
                 turn(playList.get(i));
                 if(!playList.get(i).getDone()) System.out.println("On Tile " + playList.get(i).getSpaceNum() + ".");
                 System.out.println();
                 if(playList.get(i).getSpaceNum()>=62)
                 {
-                    endCount++;
+                    //endCount++;
                     playList.get(i).setDone();
                 }
             }
@@ -77,7 +92,7 @@ public class GameBrain
             }
             roundCount++;
         }
-        runEndSeq();
+        runEndSeq();*/
         /*System.out.println("TURN 1");
         turn(playList.get(0));
         turn(playList.get(1));
@@ -176,7 +191,7 @@ public class GameBrain
         }
     }
 
-    public void turn(Player p)
+    public void turn1(Player p)
     {
         if(!p.getDone())
         {
@@ -193,23 +208,102 @@ public class GameBrain
             spaceNum = b.checkForRed(spaceNum,p);
             boardUI.setGreen(b.checkForGreen(spaceNum, p),p);
             
-
-            b.checkForGreen(spaceNum, p);
+            //b.checkForGreen(spaceNum, p);
             p.addSpace(spaceNum);
-            go=read.nextLine();
+            
+        } else             
+        {
+            boardUI.setText(p,p.getSpaceNum(),2);
+            System.out.println("Player " + p.getName() + " is done.");
+        }
+    } 
+    
+    public void turn2(Player p)
+    {
+        if(!p.getDone())
+        {
+              
             boardUI.setTextSequence(b.getTextFromSpace(p.getSpaceNum(),p),p);
             b.actionFromSpace(p.getSpaceNum(), p);
             //p.checkForAction();
             System.out.println("Player " +p.getName() + " balance = $" + p.getMoney());
             System.out.println("Player " +p.getName() + " has " + p.getLifeTileNumber() + " LIFE tiles.");
-            //System.out.println();
-            go=read.nextLine(); //prompt go
-            boardUI.setText(p,firstSpaceNum,0);
-            go=read.nextLine();
-        } else 
-        {
-            boardUI.setText(p,p.getSpaceNum(),2);
-            System.out.println("Player " + p.getName() + " is done.");
         }
+    }
+    public void turn3(Player p)
+    {
+        if(!p.getDone())
+        {
+            //System.out.println("You gotta set the text bud");
+            boardUI.setText(p,0,0);
+        }
+    }
+    public void actionPerformed(ActionEvent e) 
+    { 
+        System.out.println("HE DID IT HAHAHA");
+        if(goB.getText().equals("START")||goB.getText().equals("NEXT"))
+        {
+            //System.out.println("You're right there!");
+            boardUI.turnDisplay(roundCount);
+            roundCount++;
+            //currentPlayer=0;
+            boardUI.setText(playList.get(currentPlayer),0,1);
+            goB.setText("SPIN");
+        } else if (goB.getText().equals("SPIN")&&stage==1)
+        {
+            runSpin1();           
+        } else if(goB.getText().equals("GO!")&&stage==2)
+        {
+            runSpin2();
+        } else if(goB.getText().equals("OK!")&&stage==3)
+        {
+            runSpin3();
+        } else if(goB.getText().equals("DONE"))
+        {
+            boardUI.setText(playList.get(currentPlayer),0,1);
+            goB.setText("SPIN");
+        }
+        //canContinue=true;
+        //code that reacts to the action... 
+    }  
+    public void runSpin1()
+    {
+        if(currentPlayer==0)
+            {
+                endCount=0;
+            }
+        turn1(playList.get(currentPlayer));
+        stage++;
+        goB.setText("GO!");
+    }
+    public void runSpin2()
+    {
+        turn2(playList.get(currentPlayer));
+        stage++;
+        goB.setText("OK!");
+    }
+    public void runSpin3()
+    {
+        turn3(playList.get(currentPlayer));
+        stage=1;
+        if(!playList.get(currentPlayer).getDone()) System.out.println("On Tile " + playList.get(currentPlayer).getSpaceNum() + ".");
+        System.out.println();
+        if(playList.get(currentPlayer).getSpaceNum()>=62)
+            {
+                endCount++;
+                playList.get(currentPlayer).setDone();
+            }            
+        if(endCount==(playList.size()))
+        {
+            runEndSeq();
+        } else              
+        {
+            if(currentPlayer==playList.size()-1)
+            {
+                goB.setText("NEXT");
+                currentPlayer=-1;
+            } else goB.setText("DONE");
+        }
+        currentPlayer++;
     }
 }

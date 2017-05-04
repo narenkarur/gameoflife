@@ -4,7 +4,8 @@ import java.awt.*;
 import java.awt.image.*;
 import java.util.ArrayList;
 import Spaces.Space;
-public class BoardComponent extends JComponent implements ActionListener
+import java.awt.event.*;
+public class BoardComponent extends JComponent
 {
     JLabel nameL;
     JPanel mainP,actionP,playerP,infoP,otherP,nameP;
@@ -13,7 +14,9 @@ public class BoardComponent extends JComponent implements ActionListener
     JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL,actionL,greenL;
     JFrame fr;
     JLayeredPane pane;
-    public BoardComponent(JFrame fr, ArrayList<Player> playerList)
+    
+    boolean canContinue;
+    public BoardComponent(JFrame fr, ArrayList<Player> playerList, JButton bb)
     {
         this.fr=fr;
         fW = fr.getWidth();
@@ -123,6 +126,10 @@ public class BoardComponent extends JComponent implements ActionListener
         //mainP.setMaximumSize(mainP.getPreferredSize());
         //mainP.setMinimumSize(new Dimension(390, 190));
 
+
+        //goB.setLocation(950,150);
+        actionP.add(bb,BorderLayout.EAST);
+        
         fr.add(mainP,BorderLayout.WEST);
         fr.add(actionP,BorderLayout.SOUTH);
         fr.add(playerP,BorderLayout.EAST);
@@ -134,9 +141,14 @@ public class BoardComponent extends JComponent implements ActionListener
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         
+        canContinue=true;
         
     }
     
+    public void passButton(JButton bb)
+    {
+        
+    }
     public void addCars(ArrayList<Player> list)
     {
         for(Player p : list)
@@ -199,50 +211,46 @@ public class BoardComponent extends JComponent implements ActionListener
         return infoP;
     }
 
-    public void actionPerformed(ActionEvent e)
-    {
-
-    }
-
     public void setText(Player p, int spinNumber, int spinBinary)
     {
-        firstNameL.setText(p.getName());
-        if(spinBinary==0)
-        {
-            if(p.getDone())
+            firstNameL.setText(p.getName());
+            if(spinBinary==0)
             {
-                spinL.setText("YOU HAVE FINISHED!");
-            } else spinL.setText("You spun: " + spinNumber);
-        } else if(spinBinary==1)
-        {
-            spinL.setText("You have not spun yet.");
-        } else
-        {
-            spinL.setText("YOU ARE DONE!");
-        }
-        if(spinBinary!=0)
-        {
-            greenL.setText("");
-        }
-        kidL.setText("You have " + p.getKids() + " kids.");
-        spouseL.setText(p.getSpouseStatement());
-        houseL.setText(p.getHouseStatement());
-        jobL.setText(p.getJobStatement());
-        balanceL.setText("BALANCE: $" + p.getMoney());
-        tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
-        if(spinBinary==0) actionL.setText(p.getAction());
-        else if(spinBinary==1)
-        {
-            actionL.setText("WHERE YOU ARE");
-        } else
-        {
-            actionL.setText("YOU ARE DONE");
-        }
-        fr.setVisible(true);
+                if(p.getDone())
+                {
+                    spinL.setText("YOU HAVE FINISHED!");
+                } //else spinL.setText("You spun: " + spinNumber);
+            } else if(spinBinary==1)
+            {
+                spinL.setText("You have not spun yet.");
+            } else
+            {
+                spinL.setText("YOU ARE DONE!");
+            }
+            if(spinBinary!=0)
+            {
+                greenL.setText("");
+            }
+            kidL.setText("You have " + p.getKids() + " kids.");
+            spouseL.setText(p.getSpouseStatement());
+            houseL.setText(p.getHouseStatement());
+            jobL.setText(p.getJobStatement());
+            balanceL.setText("BALANCE: $" + p.getMoney());
+            tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+            if(spinBinary==0) actionL.setText(p.getAction());
+            else if(spinBinary==1)
+            {
+                actionL.setText("WHERE YOU ARE");
+            } else
+            {
+                actionL.setText("YOU ARE DONE");
+            }
+            fr.setVisible(true);
     }
 
     public void setEndText(String line1,String line2,String line3,ArrayList<String> putList)
     {
+        
         JFrame endF = new JFrame("YOU WON");
         infoP.removeAll();
         JPanel endP = new JPanel();
@@ -277,13 +285,13 @@ public class BoardComponent extends JComponent implements ActionListener
     }
     public void setTextSequence(String s, Player p)
     {
-        actionL.setText(s);
-        //endP.add(new JLabel(line3));
-        //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
-        //balanceL.setText("BALANCE: $" + p.getMoney());
-        //tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
-        repaint();
-        fr.setVisible(true);
+            actionL.setText(s);
+            //endP.add(new JLabel(line3));
+            //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
+            //balanceL.setText("BALANCE: $" + p.getMoney());
+            //tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+            repaint();
+            fr.setVisible(true);
     }
     public void setSpinSequence(int spinAmt)
     {
@@ -294,7 +302,20 @@ public class BoardComponent extends JComponent implements ActionListener
     {
         if(x>0)
         {
-            greenL.setText("You went over a Pay Day! Adding your salary: $" + p.returnSalary() + " (x" + x + ")");
+            greenL.setText("You'll go over a Pay Day! Adding your salary: $" + p.returnSalary() + " (x" + x + ")");
         }
+    }
+    public void turnDisplay(int y)
+    {
+        firstNameL.setText("TURN " + y);
+        fr.setVisible(true);
+    }
+    public void falseContinue()
+    {
+        canContinue=false;
+    }
+    public boolean getContinue()
+    {
+        return canContinue;
     }
 }

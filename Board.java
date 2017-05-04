@@ -206,9 +206,9 @@ public class Board
 
     public void runSueMethod(Player p)
     {
-        System.out.println("Whom would you like to sue? Enter their name.");
-        String nam = cS.nextLine();
-        System.out.println("You really thought you could sue someone? How rude, lose $100K");
+        //System.out.println("Whom would you like to sue? Enter their name.");
+        //String nam = cS.nextLine();
+        //System.out.println("You really thought you could sue someone? How rude, lose $100K");
         p.addMoney(-100000);
     }
 
