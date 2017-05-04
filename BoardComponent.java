@@ -9,7 +9,7 @@ public class BoardComponent extends JComponent implements ActionListener
     JPanel mainP,actionP,playerP,infoP,otherP,nameP;
     int fW;
     int fH;
-    JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL,actionL;
+    JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL,actionL,greenL;
     JFrame fr;
     public BoardComponent(JFrame fr)
     {
@@ -49,6 +49,9 @@ public class BoardComponent extends JComponent implements ActionListener
         actionL.setPreferredSize(new Dimension(950,150));
         infoActionP.add(actionL,BorderLayout.CENTER);
         actionL.setFont(new Font("Serif", Font.PLAIN, 40));
+        greenL = new JLabel();
+        infoActionP.add(greenL,BorderLayout.NORTH);
+        greenL.setFont(new Font("Serif", Font.PLAIN, 20));
         
 
         JPanel playerP = new JPanel();
@@ -181,43 +184,92 @@ public class BoardComponent extends JComponent implements ActionListener
     {
 
     }
-    public void setText(Player p, int spinNumber)
+    public void setText(Player p, int spinNumber, int spinBinary)
     {
         firstNameL.setText(p.getName());
-        if(p.getDone())
+        if(spinBinary==0)
         {
-            spinL.setText("YOU HAVE FINISHED!");
-        } else spinL.setText("You spun: " + spinNumber);
+            if(p.getDone())
+            {
+                spinL.setText("YOU HAVE FINISHED!");
+            } else spinL.setText("You spun: " + spinNumber);
+        } else if(spinBinary==1)
+        {
+            spinL.setText("You have not spun yet.");
+        } else
+        {
+            spinL.setText("YOU ARE DONE!");
+        }
+        if(spinBinary!=0)
+        {
+            greenL.setText("");
+        }
         kidL.setText("You have " + p.getKids() + " kids.");
         spouseL.setText(p.getSpouseStatement());
         houseL.setText(p.getHouseStatement());
         jobL.setText(p.getJobStatement());
-<<<<<<< HEAD
+
         balanceL.setText("BALANCE: $" + p.getMoney());
         tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
-        actionL.setText(p.getAction());
+        if(spinBinary==0) actionL.setText(p.getAction());
+        else if(spinBinary==1)
+        {
+            actionL.setText("WHERE YOU ARE");
+        } else
+        {
+            actionL.setText("YOU ARE DONE");
+        }
         fr.setVisible(true);
     }
     public void setEndText(String line1,String line2,String line3,ArrayList<String> putList)
     {
+        JFrame endF = new JFrame("YOU WON");
         infoP.removeAll();
         JPanel endP = new JPanel();
         endP.setLayout(new GridLayout(3+putList.size(),1));
         JLabel l1 = new JLabel(line1);
+        l1.setFont(new Font("Serif", Font.PLAIN, 40));
         endP.add(l1);
         JLabel l2 = new JLabel(line2);
+        l2.setFont(new Font("Serif", Font.PLAIN, 40));
         endP.add(l2);
+        ArrayList<JLabel> labelList = new ArrayList<JLabel>();
         for(int i=0;i<putList.size();i++)
         {
-            endP.add(new JLabel(putList.get(i)));
+            labelList.add(new JLabel(putList.get(i)));
+            labelList.get(i).setFont(new Font("Serif", Font.PLAIN, 40));
+            endP.add(labelList.get(i));
         }
-        endP.add(new JLabel(line3));
-=======
+        JLabel l3 = new JLabel(line3);
+        l3.setFont(new Font("Serif", Font.PLAIN, 40));
+        endP.add(l3);
+        endF.add(endP);
         //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
-        balanceL.setText("BALANCE: $" + p.getMoney());
-        tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
-        repaint();
->>>>>>> origin/master
+        //balanceL.setText("BALANCE: $" + p.getMoney());
+        //tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        endF.setPreferredSize(new Dimension(1200, 800));
+        endF.setResizable(false);
+        endF.pack();
+        endF.setVisible(true);   
+        endF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         
+     
+
+    }
+    public void setTextSequence(String s, Player p)
+    {
+        actionL.setText(s);
         fr.setVisible(true);
+    }
+    public void setSpinSequence(int spinAmt)
+    {
+        spinL.setText("You spun: " + spinAmt);
+        fr.setVisible(true);
+    }
+    public void setGreen(int x, Player p)
+    {
+        if(x>0)
+        {
+            greenL.setText("You went over a Pay Day! Adding your salary: $" + p.returnSalary() + " (x" + x + ")");
+        }
     }
 }

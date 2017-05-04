@@ -283,10 +283,11 @@ public class Board
     public void runSpaceMethod(int type, int[] values, String text,Player p)    
     {
         //change player stuff here
-        //p.setAction(text);
+        p.setAction(text);
         if(type==1)
         {
             System.out.println(text);
+            
             if(values[0]==69)
             {
                 System.out.println("Subtracting $" +p.getTaxes() + " from your account. Sucks.");
@@ -315,7 +316,7 @@ public class Board
         {
             System.out.print("You landed on LIFE tile. ");
             System.out.println(text);
-
+            
             p.addSecret(values[0]);
             p.addLife(1);
             if(values[1]==1)
@@ -328,9 +329,11 @@ public class Board
         } else if(type==3)
         {
             System.out.println("You landed on " + text);
+            p.setAction(text);
         } else if(type==4)
         {
             System.out.println(text);
+           
             if(values[0]!=0)
             p.raise(values[0]);
             System.out.println("Your salary is raised by $" + values[0]);
@@ -373,11 +376,29 @@ public class Board
         } else if(type==5)
         {
             System.out.println("You landed on Blue. You get to sue someone $" + values[0] + ".");
+            p.setAction("You landed on Blue. You get to sue someone $" + values[0] + ".");
             runSueMethod(p);
         }        
         //for red, remember that the first amount is a pay raise and second is added to balance
     }
-
+    
+    public String getTextFromSpace(int spaceNum, Player p)
+    {
+        if(spaceNum<6)
+        {
+            if(p.getCollege())
+            {
+                return collegeList.get(spaceNum-1).returnText();
+            } else
+            {
+                return spaceList.get(spaceNum-1).returnText();
+            }
+        } else
+        {
+            return spaceList.get(spaceNum-1).returnText();
+        }
+    }
+    
     public void actionFromSpace(int spaceNum, Player p)
     {
         if(spaceNum<6)
@@ -445,11 +466,12 @@ public class Board
         return spaceNum;
     }
 
-    public void checkForGreen(int spaceNum, Player p)
+    public int checkForGreen(int spaceNum, Player p)
     {
         //DON'T MODIFY SPACENUM
         //check how many greens between p.currentspace and p.currentspace+spacenum
         //use p.payday however many times ^^^^
+        int greenCount=0;
         if(p.getSpaceNum()<5)
         {
             if(p.getCollege())
@@ -461,6 +483,7 @@ public class Board
                 {
                     if(spaceList.get(i).getType()==3)
                     {
+                        greenCount++;
                         System.out.println("You went over a Pay Day! Adding your salary: $" + p.returnSalary()); 
                         p.addMoney(p.returnSalary());
                     }
@@ -475,10 +498,12 @@ public class Board
             {
                 if(spaceList.get(i).getType()==3)
                 {
+                    greenCount++;
                     System.out.println("You went over a Pay Day! Adding your salary: $" + p.returnSalary()); 
                     p.addMoney(p.returnSalary());
                 }
             }
         }
+        return greenCount;
     }  
 }

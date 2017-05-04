@@ -125,7 +125,7 @@ public class OrangeSpace extends Space
             }
             case 10:
             {
-                text = "Family Cruise. Pay $25,000 + $5,000 Per Child.";
+                text = "Family Cruise. Pay $25K + $5K Per Kid.";
                 amount = -69;
                 houseBinary = 0;
                 careerBinary = 0;
@@ -215,7 +215,7 @@ public class OrangeSpace extends Space
             }
             case 19:
             {
-                text = "Go to Theme Park with Family. Pay $25,000 + $5,000 per kid.";
+                text = "Go to Theme Park w/ Fam. Pay $25K + $5K per kid.";
                 amount = -69;
                 houseBinary = 0;
                 careerBinary = 0;
