@@ -2,7 +2,7 @@ import java.awt.Color;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
-public class Peg //extends JComponent
+public class Peg extends JComponent
 {
     boolean male;
     Color color;
@@ -18,6 +18,12 @@ public class Peg //extends JComponent
         this.x = x;
         this.y = y;
         this.w = w;
+    }
+    
+    public void paintComponent(Graphics g)
+    {
+        Graphics2D g2 = (Graphics2D) g;
+        draw(g2);
     }
 
     public void draw(Graphics2D g2)

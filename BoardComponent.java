@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.awt.image.*;
 import java.util.ArrayList;
+import Spaces.Space;
 public class BoardComponent extends JComponent implements ActionListener
 {
     JLabel nameL;
@@ -16,7 +17,7 @@ public class BoardComponent extends JComponent implements ActionListener
         this.fr=fr;
         fW = fr.getWidth();
         fH = fr.getHeight();
-
+        
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         //mainP.setLayout(new BorderLayout());
@@ -39,7 +40,7 @@ public class BoardComponent extends JComponent implements ActionListener
         actionP.setBorder(BorderFactory.createLineBorder(Color.red));
         actionP.setLayout(new BorderLayout());
         actionP.setPreferredSize(new Dimension(1100,150));
-        
+
         JPanel infoActionP = new JPanel();
         infoActionP.setBorder(BorderFactory.createLineBorder(Color.cyan));
         infoActionP.setPreferredSize(new Dimension(950,150));
@@ -49,7 +50,6 @@ public class BoardComponent extends JComponent implements ActionListener
         actionL.setPreferredSize(new Dimension(950,150));
         infoActionP.add(actionL,BorderLayout.CENTER);
         actionL.setFont(new Font("Serif", Font.PLAIN, 40));
-        
 
         JPanel playerP = new JPanel();
         playerP.setBorder(BorderFactory.createLineBorder(Color.green));
@@ -67,21 +67,21 @@ public class BoardComponent extends JComponent implements ActionListener
         infoP.setBorder(BorderFactory.createLineBorder(Color.magenta));
         infoP.setPreferredSize(new Dimension(400,620));
         infoP.setLayout(new BorderLayout());
-        
+
         nameP=new JPanel();
         nameP.setBorder(BorderFactory.createLineBorder(Color.cyan));
         nameP.setPreferredSize(new Dimension(400,70));
         infoP.add(nameP,BorderLayout.NORTH);
-        
+
         firstNameL=new JLabel("NAME");
         firstNameL.setFont(new Font("Serif", Font.PLAIN, 50));
         nameP.add(firstNameL);
-        
+
         otherP=new JPanel();
         otherP.setBorder(BorderFactory.createLineBorder(Color.orange));
         otherP.setPreferredSize(new Dimension(400,550));
         otherP.setLayout(new GridLayout(7,1));
-        
+
         spinL=new JLabel("Spin Amt");
         spinL.setFont(new Font("Serif", Font.PLAIN, 30));
         otherP.add(spinL);        
@@ -103,7 +103,7 @@ public class BoardComponent extends JComponent implements ActionListener
         tileL=new JLabel("Your Life Tile Amount");
         tileL.setFont(new Font("Serif", Font.PLAIN, 30));
         otherP.add(tileL);        
-        
+
         infoP.add(otherP,BorderLayout.CENTER);
         playerP.add(infoP,BorderLayout.CENTER);
         //spun, kids, spouses, balance, life cards
@@ -121,6 +121,8 @@ public class BoardComponent extends JComponent implements ActionListener
         fr.pack();
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        
+        
     }
 
     public static ImageIcon resize(BufferedImage imageIcon, double width, double height, boolean straight)//resizes the image to fit a space
@@ -152,6 +154,17 @@ public class BoardComponent extends JComponent implements ActionListener
         return new ImageIcon(icon);
     }
 
+    public void testLocation(ArrayList<Space> spaceList)
+    {
+        for(Space s : spaceList)
+        {
+            Peg p = new Peg(true,s.getXPos(),s.getYPos(),15);
+            fr.add(p);
+            fr.setVisible(true);
+            fr.setComponentZOrder(p,0);
+        }
+    }
+
     public JLabel getNameL()
     {
         return nameL;
@@ -181,6 +194,7 @@ public class BoardComponent extends JComponent implements ActionListener
     {
 
     }
+
     public void setText(Player p, int spinNumber)
     {
         firstNameL.setText(p.getName());
@@ -192,12 +206,12 @@ public class BoardComponent extends JComponent implements ActionListener
         spouseL.setText(p.getSpouseStatement());
         houseL.setText(p.getHouseStatement());
         jobL.setText(p.getJobStatement());
-<<<<<<< HEAD
         balanceL.setText("BALANCE: $" + p.getMoney());
         tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
         actionL.setText(p.getAction());
         fr.setVisible(true);
     }
+
     public void setEndText(String line1,String line2,String line3,ArrayList<String> putList)
     {
         infoP.removeAll();
@@ -212,12 +226,10 @@ public class BoardComponent extends JComponent implements ActionListener
             endP.add(new JLabel(putList.get(i)));
         }
         endP.add(new JLabel(line3));
-=======
         //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
-        balanceL.setText("BALANCE: $" + p.getMoney());
-        tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        //balanceL.setText("BALANCE: $" + p.getMoney());
+        //tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
         repaint();
->>>>>>> origin/master
         fr.setVisible(true);
     }
 }

@@ -44,7 +44,6 @@ public class GameBrain
         fr.getContentPane().setLayout(new BorderLayout());
         boardUI = new BoardComponent(fr);
         
-        
         for(int i=0;i<genderList.size();i++)
         {
             addPlayer(genderList.get(i),nameList.get(i));
@@ -107,6 +106,7 @@ public class GameBrain
         String line3=("Congrats and thanks for playing!");
         boardUI.setEndText(line1,line2,line3,putList);
     }
+    
     public String whoWon()
     {
         String returnWon=playList.get(0).getName();
@@ -150,7 +150,7 @@ public class GameBrain
 
     public void addPlayer(boolean male, String name)
     {
-        playList.add(new Player(male, name));
+        playList.add(new Player(male, name, fr));
 
     }
 
@@ -178,6 +178,7 @@ public class GameBrain
         if(!p.getDone())
         {
             System.out.println(); 
+            b.testLocations(boardUI);
             //boardUI.getNameL().setText(p.getName());
             System.out.println("Player " + p.getName() + ":");
             int spaceNum = w.spin(); 

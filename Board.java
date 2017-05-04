@@ -31,7 +31,7 @@ public class Board
         createCareerList();
         createHouseList();
     }
-    
+
     public String getTheAction(Player p)
     {
         if(p.getSpaceNum()<5)
@@ -48,7 +48,7 @@ public class Board
             return spaceList.get(p.getSpaceNum()).returnText();
         }
     }
-    
+
     public ArrayList<Space> getCollegeList()
     {
         return collegeList;
@@ -279,7 +279,12 @@ public class Board
         spaceList.add(new RedSpace(5));   //62 spaces total   
         //spaceList.add(new GreenSpace(constructor stuff));
     }
-
+    
+    public void testLocations(BoardComponent c)
+    {
+        c.testLocation(spaceList);
+    }
+    
     public void runSpaceMethod(int type, int[] values, String text,Player p)    
     {
         //change player stuff here
@@ -332,7 +337,7 @@ public class Board
         {
             System.out.println(text);
             if(values[0]!=0)
-            p.raise(values[0]);
+                p.raise(values[0]);
             System.out.println("Your salary is raised by $" + values[0]);
             System.out.println("Adding " + values[1] + " into account");
             p.addMoney(values[1]);
@@ -384,13 +389,16 @@ public class Board
         {
             if(p.getCollege())
             {
+                p.setList(collegeList);
                 runSpaceMethod(collegeList.get(spaceNum-1).getType(),collegeList.get(spaceNum-1).returnSpaceMethod(),collegeList.get(spaceNum-1).returnText(),p);
             } else
             {
+                p.setList(spaceList);
                 runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).returnSpaceMethod(),spaceList.get(spaceNum-1).returnText(),p);
             }
         } else
         {
+            p.setList(spaceList);
             runSpaceMethod(spaceList.get(spaceNum-1).getType(),spaceList.get(spaceNum-1).returnSpaceMethod(),spaceList.get(spaceNum-1).returnText(),p);
         }
         //return stuff
@@ -425,10 +433,10 @@ public class Board
                 }
                 /*for(int i=p.getSpaceNum();i<p.getSpaceNum()+spaceNum;i++)
                 {
-                    if(collegeList.get(i).getType()==4)
-                    {
-                        return i-p.getSpaceNum()+1;
-                    }
+                if(collegeList.get(i).getType()==4)
+                {
+                return i-p.getSpaceNum()+1;
+                }
                 }  */              
             }
         } else
