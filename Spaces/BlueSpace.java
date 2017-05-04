@@ -16,35 +16,35 @@ public class BlueSpace extends Space
             {
                 amount = 100000;
                 xPos = startX+7*(700/14);
-                yPos = 40;
+                yPos = 160;
                 break;
             }
             case 1:
             {
                 amount = 100000;
                 xPos = startX+8*(700/14);
-                yPos = 40;
+                yPos = 310;
                 break;
             }
             case 2:
             {
                 amount = 100000;
                 xPos = startX+12*(700/14);
-                yPos = 40;
+                yPos = 450;
                 break;
             }
             case 3:
             {
                 amount = 200000;
                 xPos = startX+7*(700/14);
-                yPos = 40;
+                yPos = 460;
                 break;
             }
             case 4:
             {
                 amount = 100000;
                 xPos = startX+1*(700/14);
-                yPos = 40;
+                yPos = 610;
                 break;
             }
         }

@@ -64,6 +64,7 @@ public class GameBrain implements ActionListener
         boardUI.addCars(playList);
         
         choosePath();
+        //b.testSpaces(playList.get(0));
         //int endCount=0;
         /*
         boolean gameContinue=true;
@@ -71,7 +72,7 @@ public class GameBrain implements ActionListener
         //int roundCount=1;
         =======
         int roundCount=1;
-        b.testSpaces(playList.get(0));
+        
         >>>>>>> origin/master
         while(gameContinue)
         {
@@ -246,7 +247,7 @@ public class GameBrain implements ActionListener
     }
     public void actionPerformed(ActionEvent e) 
     { 
-        System.out.println("HE DID IT HAHAHA");
+        //System.out.println("HE DID IT HAHAHA");
         if(goB.getText().equals("START")||goB.getText().equals("NEXT"))
         {
             //System.out.println("You're right there!");

@@ -28,7 +28,7 @@ public class RedSpace extends Space
                 houseBinary = 0;
                 careerBinary=0;
                 xPos = startX+6*(700/14);
-                yPos = 40;
+                yPos = 15;
                 break;
             }
             case 1:
@@ -39,7 +39,7 @@ public class RedSpace extends Space
                 houseBinary = 1;
                 careerBinary=0;
                 xPos = startX+10*(700/14);
-                yPos = 40;
+                yPos = 15;
                 break;
             }
             case 2:
@@ -50,7 +50,7 @@ public class RedSpace extends Space
                 houseBinary = 0;
                 careerBinary=0;
                 xPos = startX+5*(700/14);
-                yPos = 40;
+                yPos = 160;
                 break;
             }
             case 3:
@@ -61,7 +61,7 @@ public class RedSpace extends Space
                 houseBinary = 0;
                 careerBinary=0;
                 xPos = startX+9*(700/14);
-                yPos = 40;
+                yPos = 310;
                 break;
             }
             case 4:
@@ -72,7 +72,7 @@ public class RedSpace extends Space
                 houseBinary = 1;
                 careerBinary=0; 
                 xPos = startX+10*(700/14);
-                yPos = 40;
+                yPos = 460;
                 break;
             }    
             case 5:
@@ -83,7 +83,7 @@ public class RedSpace extends Space
                 houseBinary=0;
                 careerBinary=0;
                 xPos = startX+5*(700/14);
-                yPos = 40;
+                yPos = 610;
                 break;
             }
             case 100:

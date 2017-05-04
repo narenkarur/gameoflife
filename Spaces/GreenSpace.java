@@ -16,97 +16,97 @@ public class GreenSpace extends Space
             case 0:
             {
                 xPos = startX+1*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 15;//copy and pase for rest, change y;
                 break;
             }
             case 1:
             {
                 xPos = startX+5*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 15;//copy and pase for rest, change y;
                 break;
             }
             case 2:
             {
                 xPos = startX+9*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 15;//copy and pase for rest, change y;
                 break;
             }
             case 3:
             {
-                xPos = startX+12*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                xPos = startX+12*(700/14)+30;
+                yPos = 90;//copy and pase for rest, change y;
                 break;
             }
             case 4:
             {
                 xPos = startX+8*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 160;//copy and pase for rest, change y;
                 break;
             }
             case 5:
             {
                 xPos = startX+3*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 160;//copy and pase for rest, change y;
                 break;
             }
             case 6:
             {
-                xPos = startX+0*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                xPos = startX+0*(700/14)-15;
+                yPos = 230;//copy and pase for rest, change y;
                 break;
             }
             case 7:
             {
                 xPos = startX+3*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 310;//copy and pase for rest, change y;
                 break;
             }
             case 8:
             {
                 xPos = startX+7*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 310;//copy and pase for rest, change y;
                 break;
             }
             case 9:
             {
                 xPos = startX+10*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 310;//copy and pase for rest, change y;
                 break;
             }
             case 10:
             {
-                xPos = startX+12*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                xPos = startX+12*(700/14)+25;
+                yPos = 390;//copy and pase for rest, change y;
                 break;
             }
             case 11:
             {
                 xPos = startX+9*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 460;//copy and pase for rest, change y;
                 break;
             }
             case 12:
             {
                 xPos = startX+6*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 460;//copy and pase for rest, change y;
                 break;
             }
             case 13:
             {
                 xPos = startX+2*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 460;//copy and pase for rest, change y;
                 break;
             }
             case 14:
             {
                 xPos = startX+0*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 560;//copy and pase for rest, change y;
                 break;
             }
             case 15:
             {
                 xPos = startX+3*(700/14);
-                yPos = 20;//copy and pase for rest, change y;
+                yPos = 610;//copy and pase for rest, change y;
                 break;
             }
         }

@@ -30,7 +30,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+4*(700/14);
-                yPos = 40;
+                yPos = 15;
                 break;
                 
             }
@@ -40,7 +40,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+7*(700/14);
-                yPos = 40;
+                yPos = 15;
                 break;
             }
             case 2:
@@ -48,8 +48,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Baby Boy!";
                 amount = setAmount();
                 kidsBinary = 1;
-                xPos = startX+12*(700/14);
-                yPos = 40;
+                xPos = startX+12*(700/14)+22;
+                yPos = 35;
                 break;
             }
             case 3:
@@ -57,8 +57,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Vote!!!";
                 amount = setAmount();
                 kidsBinary = 0;
-                xPos = startX+12*(700/14);
-                yPos = 40;
+                xPos = startX+12*(700/14)+15;
+                yPos = 160;
                 break;
             }
             case 4:
@@ -67,7 +67,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 1;
                 xPos = startX+9*(700/14);
-                yPos = 40;
+                yPos = 160;
                 break;
             }
             case 5:
@@ -76,7 +76,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 2;
                 xPos = startX+2*(700/14);
-                yPos = 40;
+                yPos = 160;
                 break;
             }
             case 6:
@@ -85,7 +85,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+0*(700/14);
-                yPos = 40;
+                yPos = 180;
                 break;
             }
             case 7:
@@ -94,7 +94,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+5*(700/14);
-                yPos = 40;
+                yPos = 310;
                 break;
             }
             case 8:
@@ -103,7 +103,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+4*(700/14);
-                yPos = 40;
+                yPos = 460;
                 break;
             }
             case 9:
@@ -112,7 +112,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+3*(700/14);
-                yPos = 40;
+                yPos = 460;
                 break;
             }
             case 10:
@@ -120,8 +120,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Go hiking in the Australian Alps.";
                 amount = setAmount();
                 kidsBinary = 0;
-                xPos = startX+0*(700/14);
-                yPos = 40;
+                xPos = startX+0*(700/14)-20;
+                yPos = 480;
                 break;
             }
             case 11:
@@ -130,7 +130,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+0*(700/14);
-                yPos = 40;
+                yPos = 590;
                 break;
             }
             case 12:
@@ -139,7 +139,7 @@ public class LifeSpace extends Space
                 amount = setAmount();
                 kidsBinary = 0;
                 xPos = startX+2*(700/14);
-                yPos = 40;
+                yPos = 618;
                 break;
             }
             case 100:
