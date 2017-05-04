@@ -280,13 +280,27 @@ public class Board
         //spaceList.add(new GreenSpace(constructor stuff));
     }
     
+    public void testSpaces(Player p)
+    {
+        System.out.println("Testing Spaces");
+        p.addSpace(1);
+        boolean go = true;
+        while(go)
+        {
+            String idk = cS.nextLine();
+            actionFromSpace(p.getSpaceNum(),p);
+            p.addSpace(1);
+        }
+    }
     
     public void runSpaceMethod(int type, int[] values, String text,Player p)    
     {
         //change player stuff here
         p.setAction(text);
         //p.setAction(text);
-        p.move(spaceList.get(p.getSpaceNum()-1).getXPos(),spaceList.get(p.getSpaceNum()-1).getYPos());
+        int x = spaceList.get(p.getSpaceNum()-1).getXPos();
+        int y = spaceList.get(p.getSpaceNum()-1).getYPos();
+        p.move(x,y);
 
         if(type==1)
         {

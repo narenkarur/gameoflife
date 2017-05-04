@@ -7,14 +7,16 @@ public class Car extends JComponent
     ArrayList<Peg> pegs;
     int x,y,w,wRat;
     JFrame frame;
-    public Car(JFrame frame)
+    Color color;
+    public Car(JFrame frame, Color color)
     {
         pegs = new ArrayList<Peg>();
         wRat = 2;
         x = 10;
         y = 40;
-        w = 70;
+        w = 20;
         this.frame = frame;
+        this.color = color;
     }
 
     /*
@@ -53,7 +55,7 @@ public class Car extends JComponent
         Graphics2D g2 = (Graphics2D) g;
         
         Rectangle2D.Double rect = new Rectangle2D.Double(x,y,w,w*wRat);
-        g2.setColor(Color.black);
+        g2.setColor(color);
         g2.draw(rect);
         g2.setColor(Color.black);
         g2.fill(rect);

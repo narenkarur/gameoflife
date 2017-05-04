@@ -45,7 +45,7 @@ public class GameBrain
 
         for(int i=0;i<genderList.size();i++)
         {
-            addPlayer(genderList.get(i),nameList.get(i));
+            addPlayer(genderList.get(i),nameList.get(i),i);
         }
         boardUI = new BoardComponent(fr, playList);
         boardUI.addCars(playList);
@@ -54,6 +54,7 @@ public class GameBrain
         int endCount=0;
         boolean gameContinue=true;
         int roundCount=1;
+        b.testSpaces(playList.get(0));
         while(gameContinue)
         {
             System.out.println("TURN " + roundCount);
@@ -152,9 +153,9 @@ public class GameBrain
 
     }    
 
-    public void addPlayer(boolean male, String name)
+    public void addPlayer(boolean male, String name, int pNum)
     {
-        playList.add(new Player(male, name, fr));
+        playList.add(new Player(male, name, fr, pNum));
 
     }
 

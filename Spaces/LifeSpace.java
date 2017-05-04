@@ -17,6 +17,7 @@ public class LifeSpace extends Space
     int amount;
     Random rand;
     int kidsBinary;
+    int startX = 30;
     public LifeSpace(int which)
     {
         //amount random gen
@@ -28,13 +29,18 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Volunteer at soup kitchen.";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+4*(700/14);
+                yPos = 40;
                 break;
+                
             }
             case 1:
             {
                 text= "LIFE TILE: Happy Honeymoon!";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+7*(700/14);
+                yPos = 40;
                 break;
             }
             case 2:
@@ -42,6 +48,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Baby Boy!";
                 amount = setAmount();
                 kidsBinary = 1;
+                xPos = startX+12*(700/14);
+                yPos = 40;
                 break;
             }
             case 3:
@@ -49,6 +57,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Vote!!!";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+12*(700/14);
+                yPos = 40;
                 break;
             }
             case 4:
@@ -56,6 +66,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Baby Girl!";
                 amount = setAmount();
                 kidsBinary = 1;
+                xPos = startX+9*(700/14);
+                yPos = 40;
                 break;
             }
             case 5:
@@ -63,6 +75,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Adopt twins!!";
                 amount = setAmount();
                 kidsBinary = 2;
+                xPos = startX+2*(700/14);
+                yPos = 40;
                 break;
             }
             case 6:
@@ -70,6 +84,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Run for Congress.";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+0*(700/14);
+                yPos = 40;
                 break;
             }
             case 7:
@@ -77,6 +93,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Donate to African Orphans.";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+5*(700/14);
+                yPos = 40;
                 break;
             }
             case 8:
@@ -84,6 +102,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Visit Pyramids in Egypt.";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+4*(700/14);
+                yPos = 40;
                 break;
             }
             case 9:
@@ -91,6 +111,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: You're a grandparent!";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+3*(700/14);
+                yPos = 40;
                 break;
             }
             case 10:
@@ -98,6 +120,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Go hiking in the Australian Alps.";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+0*(700/14);
+                yPos = 40;
                 break;
             }
             case 11:
@@ -105,6 +129,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: Visit Great Wall of China.";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+0*(700/14);
+                yPos = 40;
                 break;
             }
             case 12:
@@ -112,6 +138,8 @@ public class LifeSpace extends Space
                 text= "LIFE TILE: You're a grandparent!";
                 amount = setAmount();
                 kidsBinary = 0;
+                xPos = startX+2*(700/14);
+                yPos = 40;
                 break;
             }
             case 100:

@@ -1,6 +1,7 @@
 import Spaces.Space;
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.Color;
 public class Player
 {
     boolean male;
@@ -22,9 +23,17 @@ public class Player
     String action;
     ArrayList<Space> spaceList;
     JFrame fr;
-    public Player(boolean m, String n, JFrame frame)
+    int playerNum;
+    ArrayList<Color> colors;
+    public Player(boolean m, String n, JFrame frame, int pNum)
     {
-        car = new Car(frame);
+        colors = new ArrayList<Color>();
+        colors.add(Color.red);
+        colors.add(Color.blue);
+        colors.add(Color.green);
+        colors.add(Color.orange);
+        colors.add(Color.magenta);
+        car = new Car(frame, colors.get(playerNum));
         male=m;
         car.addPeg(male);
         name=n;
@@ -36,17 +45,19 @@ public class Player
         house="";
         action="";
         fr = frame;
-
+        playerNum = pNum;
+        
     }
 
-    public void addCar(JLayeredPane mainP, JFrame fr)
+    public void addCar(JFrame fr)
     {
-        //         fr.add(car);
-        //         fr.setVisible(true);
-        //         fr.setComponentZOrder(car,0);
-        mainP.add(car, new Integer(2));
-        car.repaint();
+        fr.add(car);
         fr.setVisible(true);
+        fr.setComponentZOrder(car,0);
+        //mainP.add(car, new Integer(2));
+        //fr.add(car);
+        //car.repaint();
+        //fr.setVisible(true);
     }
 
     public void addSpace(int n)
