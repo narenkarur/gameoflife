@@ -39,12 +39,14 @@ public class Player
 
     }
 
-    public void addCar(JLayeredPane mainP)
+    public void addCar(JLayeredPane mainP, JFrame fr)
     {
         //         fr.add(car);
         //         fr.setVisible(true);
         //         fr.setComponentZOrder(car,0);
         mainP.add(car, new Integer(2));
+        car.repaint();
+        fr.setVisible(true);
     }
 
     public void addSpace(int n)

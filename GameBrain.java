@@ -48,6 +48,7 @@ public class GameBrain
             addPlayer(genderList.get(i),nameList.get(i));
         }
         boardUI = new BoardComponent(fr, playList);
+        boardUI.addCars(playList);
         
         choosePath();
         int endCount=0;

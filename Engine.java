@@ -68,6 +68,8 @@ public class Engine
         car.addPeg(false);
         car.addPeg(true);
         car.addPeg(false);
+        car.addPeg(true);
+        car.addPeg(false);
         frame.add(car);
         frame.setVisible(true);
         //Peg p = new Peg(true, 10,10,10);

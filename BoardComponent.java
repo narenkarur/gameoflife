@@ -19,9 +19,7 @@ public class BoardComponent extends JComponent implements ActionListener
         fW = fr.getWidth();
         fH = fr.getHeight();
         
-        Car c = new Car(fr);
-        fr.add(c);
-        fr.setVisible(true);
+        
         
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
@@ -29,7 +27,7 @@ public class BoardComponent extends JComponent implements ActionListener
         mainP.setPreferredSize(new Dimension(700, 700));  
         pane = new JLayeredPane();
         JLabel boardL = new JLabel();
-        pane.add(boardL, new Integer(5));
+        pane.add(boardL, new Integer(1));
         
         
         ImageIcon ic = new ImageIcon("Board.png");
@@ -141,7 +139,7 @@ public class BoardComponent extends JComponent implements ActionListener
     {
         for(Player p : list)
         {
-            p.addCar(pane);
+            p.addCar(pane,fr);
         }
     }
 

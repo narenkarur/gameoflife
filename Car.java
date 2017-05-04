@@ -31,13 +31,13 @@ public class Car extends JComponent
         {
             thisX = x+thisW;
         } else thisX = x+4*thisW;
-        if(pegs.size()<=2)
+        if(pegs.size()<2)
         {
             thisY = y+w*wRat-3*thisW;
-        } else if(pegs.size()<=4)
+        } else if(pegs.size()<4)
         {
             thisY = y+w*wRat-6*thisW;
-        } else thisY = y+w*wRat-7*thisW;
+        } else thisY = y+w*wRat-9*thisW;
         pegs.add(new Peg(male,thisX,thisY, 2*thisW,frame));
     }
 
