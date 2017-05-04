@@ -6,12 +6,17 @@ public class Car extends JComponent
 {
     ArrayList<Peg> pegs;
     int x,y,w,wRat;
-    public Car()
+    JFrame frame;
+    public Car(JFrame frame)
     {
         pegs = new ArrayList<Peg>();
-        wRat = 3;
+        wRat = 2;
+        x = 10;
+        y = 40;
+        w = 70;
+        this.frame = frame;
     }
-    
+
     /*
      * Pegs go onto the car in the order that they are in the arraylist, because the first peg added
      * is the player (drivers seat), the second peg added is the spouse (passenger seat), and any
@@ -28,14 +33,14 @@ public class Car extends JComponent
         } else thisX = x+4*thisW;
         if(pegs.size()<=2)
         {
-            thisY = y+w*wRat-thisW;
+            thisY = y+w*wRat-3*thisW;
         } else if(pegs.size()<=4)
         {
-            thisY = y+w*wRat-4*thisW;
+            thisY = y+w*wRat-6*thisW;
         } else thisY = y+w*wRat-7*thisW;
-        pegs.add(new Peg(male,thisX,thisY, 2*thisW));
+        pegs.add(new Peg(male,thisX,thisY, 2*thisW,frame));
     }
-    
+
     public void move(int x, int y)
     {
         this.x = x;
@@ -46,15 +51,19 @@ public class Car extends JComponent
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
+        
+        Rectangle2D.Double rect = new Rectangle2D.Double(x,y,w,w*wRat);
+        g2.setColor(Color.black);
+        g2.draw(rect);
+        g2.setColor(Color.black);
+        g2.fill(rect);
+        
         for(Peg p : pegs)
         {
             p.draw(g2);
-            
+            frame.setVisible(true);
         }
-        Rectangle2D.Double rect = new Rectangle2D.Double(x,y,w,w*wRat);
-        g2.draw(rect);
-        g2.setColor(Color.white);
-        g2.fill(rect);
+        
     }
-    
+
 }

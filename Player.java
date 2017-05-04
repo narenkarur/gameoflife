@@ -1,4 +1,6 @@
-
+import Spaces.Space;
+import java.util.ArrayList;
+import javax.swing.*;
 public class Player
 {
     boolean male;
@@ -18,9 +20,11 @@ public class Player
     boolean isDone;
     boolean ifSpouse;
     String action;
-    public Player(boolean m, String n)
+    ArrayList<Space> spaceList;
+    JFrame fr;
+    public Player(boolean m, String n, JFrame frame)
     {
-        car = new Car();
+        car = new Car(frame);
         male=m;
         car.addPeg(male);
         name=n;
@@ -31,135 +35,165 @@ public class Player
         ifSpouse=false;
         house="";
         action="";
+        fr = frame;
+
     }
-    
+
+    public void addCar(JLayeredPane mainP)
+    {
+        //         fr.add(car);
+        //         fr.setVisible(true);
+        //         fr.setComponentZOrder(car,0);
+        mainP.add(car, new Integer(2));
+    }
+
     public void addSpace(int n)
     {
         spaceNum+=n;
     }
-    
+
     public String getName()
     {
         return name;
     }
-    
+
     public int getSpaceNum()
     {
         return spaceNum;
     }
-    
+
     public int getMoney()
     {
         return money;
     }
-   
+
     public void addMoney(int x)
     {
         money+=x;
     }
-    
+
     public void checkForAction()
     {
         //THIS CONTROLS ALL THE ASSETS AND THEIR FUNCTIONS
     }
-    
+
     public void addHouse()
     {
         //choose one of the house deed cards, that's the house you get
         //this affects your cost per turn that is controlled in the checkForAction
     }
-    
+
     public boolean getCollege()
     {
         return college;
     }
-    
+
     public void setCollege(boolean c)
     {
         college = c;
     }
-    
+
     public void addSecret(int x)
     {
         secret+=x;
     }
+
     public int getSecret()
     {
         return secret;
     }
+
     public void setSalary(int x)
     {
         salary =x;
     }
+
     public int returnSalary()
     {
         return salary;
     }
+
     public void raise(int x)
     {
         salary+=x;
     }
+
     public void setCareer(String x)
     {
         career=x;
     }
+
     public String getCareer()
     {
         return career;
     }
+
     public void setHouse(String h)
     {
         house = h;
     }
+
     public String getHouse()
     {
         return house;
     }
+
     public void addKids(int x)
     {
         kidCount+=x;
     }
+
     public int getKids()
     {
         return kidCount;
     }
+
     public int getTaxes()
     {
         return salary/5;
     }
+
     public int getCruiseAmount()
     {
         return (25000 + (kidCount*5000));
     }
+
     public int getRetireAmount()
     {
         return (10000*kidCount);
     }
+
     public boolean hasJob()
     {
         if(career.equals("")) return false;
         else return true;
     }
+
     public int getLifeTileNumber()
     {
         return lifeTileNumber;
     }
+
     public void addLife(int x)
     {
         lifeTileNumber+=x;
     }
+
     public void setDone()
     {
         isDone=true;
     }
+
     public boolean getDone()
     {
         return isDone;
     }
+
     public int getTotalMoney()
     {
         return money+secret;
     }
+
     public boolean getSpouse()
     {
         if(getSpaceNum()>=5)
@@ -168,6 +202,7 @@ public class Player
         }        
         return ifSpouse;
     }
+
     public String getSpouseStatement()
     {
         if(getSpaceNum()>=5)
@@ -179,10 +214,12 @@ public class Player
             return("You are married.");
         } else return ("You are not married, you fat loser.");
     }
+
     public void setSpouse(boolean b)
     {
         ifSpouse=b;
     }
+
     public String getHouseStatement()
     {
         if(house.equals("")) return ("You live with your mom. Loser.");
@@ -202,12 +239,25 @@ public class Player
 
     //add getters and setters
     //add space method: takes current space and adds space
+
     public String getAction()
     {
         return action;
     }
+
     public void setAction(String s)
     {
         action=s;
     }
+
+    public void setList(ArrayList<Space> list)
+    {
+        spaceList = list;
+    }
+
+    public void move(int x, int y)
+    {
+        car.move(x,y);
+    }
+
 }

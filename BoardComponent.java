@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 import java.awt.image.*;
 import java.util.ArrayList;
+import Spaces.Space;
 public class BoardComponent extends JComponent implements ActionListener
 {
     JLabel nameL;
@@ -11,20 +12,28 @@ public class BoardComponent extends JComponent implements ActionListener
     int fH;
     JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL,actionL,greenL;
     JFrame fr;
-    public BoardComponent(JFrame fr)
+    JLayeredPane pane;
+    public BoardComponent(JFrame fr, ArrayList<Player> playerList)
     {
         this.fr=fr;
         fW = fr.getWidth();
         fH = fr.getHeight();
-
+        
+        Car c = new Car(fr);
+        fr.add(c);
+        fr.setVisible(true);
+        
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         //mainP.setLayout(new BorderLayout());
         mainP.setPreferredSize(new Dimension(700, 700));  
+        pane = new JLayeredPane();
         JLabel boardL = new JLabel();
+        pane.add(boardL, new Integer(5));
+        
+        
         ImageIcon ic = new ImageIcon("Board.png");
         Image im = ic.getImage();
-
         BufferedImage bimage = new BufferedImage(im.getWidth(null), im.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics2D bGr = bimage.createGraphics();
         bGr.drawImage(im, 0, 0, null);
@@ -39,7 +48,7 @@ public class BoardComponent extends JComponent implements ActionListener
         actionP.setBorder(BorderFactory.createLineBorder(Color.red));
         actionP.setLayout(new BorderLayout());
         actionP.setPreferredSize(new Dimension(1100,150));
-        
+
         JPanel infoActionP = new JPanel();
         infoActionP.setBorder(BorderFactory.createLineBorder(Color.cyan));
         infoActionP.setPreferredSize(new Dimension(950,150));
@@ -70,21 +79,21 @@ public class BoardComponent extends JComponent implements ActionListener
         infoP.setBorder(BorderFactory.createLineBorder(Color.magenta));
         infoP.setPreferredSize(new Dimension(400,620));
         infoP.setLayout(new BorderLayout());
-        
+
         nameP=new JPanel();
         nameP.setBorder(BorderFactory.createLineBorder(Color.cyan));
         nameP.setPreferredSize(new Dimension(400,70));
         infoP.add(nameP,BorderLayout.NORTH);
-        
+
         firstNameL=new JLabel("NAME");
         firstNameL.setFont(new Font("Serif", Font.PLAIN, 50));
         nameP.add(firstNameL);
-        
+
         otherP=new JPanel();
         otherP.setBorder(BorderFactory.createLineBorder(Color.orange));
         otherP.setPreferredSize(new Dimension(400,550));
         otherP.setLayout(new GridLayout(7,1));
-        
+
         spinL=new JLabel("Spin Amt");
         spinL.setFont(new Font("Serif", Font.PLAIN, 30));
         otherP.add(spinL);        
@@ -106,7 +115,7 @@ public class BoardComponent extends JComponent implements ActionListener
         tileL=new JLabel("Your Life Tile Amount");
         tileL.setFont(new Font("Serif", Font.PLAIN, 30));
         otherP.add(tileL);        
-        
+
         infoP.add(otherP,BorderLayout.CENTER);
         playerP.add(infoP,BorderLayout.CENTER);
         //spun, kids, spouses, balance, life cards
@@ -124,6 +133,16 @@ public class BoardComponent extends JComponent implements ActionListener
         fr.pack();
         fr.setVisible(true);   
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        
+        
+    }
+    
+    public void addCars(ArrayList<Player> list)
+    {
+        for(Player p : list)
+        {
+            p.addCar(pane);
+        }
     }
 
     public static ImageIcon resize(BufferedImage imageIcon, double width, double height, boolean straight)//resizes the image to fit a space
@@ -184,6 +203,7 @@ public class BoardComponent extends JComponent implements ActionListener
     {
 
     }
+
     public void setText(Player p, int spinNumber, int spinBinary)
     {
         firstNameL.setText(p.getName());
@@ -208,7 +228,6 @@ public class BoardComponent extends JComponent implements ActionListener
         spouseL.setText(p.getSpouseStatement());
         houseL.setText(p.getHouseStatement());
         jobL.setText(p.getJobStatement());
-
         balanceL.setText("BALANCE: $" + p.getMoney());
         tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
         if(spinBinary==0) actionL.setText(p.getAction());
@@ -221,6 +240,7 @@ public class BoardComponent extends JComponent implements ActionListener
         }
         fr.setVisible(true);
     }
+
     public void setEndText(String line1,String line2,String line3,ArrayList<String> putList)
     {
         JFrame endF = new JFrame("YOU WON");
@@ -258,6 +278,11 @@ public class BoardComponent extends JComponent implements ActionListener
     public void setTextSequence(String s, Player p)
     {
         actionL.setText(s);
+        //endP.add(new JLabel(line3));
+        //jobL.setText("You are a " + p.getCareer() + " and earn $" + p.returnSalary() + ".");
+        //balanceL.setText("BALANCE: $" + p.getMoney());
+        //tileL.setText("You have " + p.getLifeTileNumber() + " LIFE Tiles.");
+        repaint();
         fr.setVisible(true);
     }
     public void setSpinSequence(int spinAmt)
