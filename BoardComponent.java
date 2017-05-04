@@ -12,20 +12,28 @@ public class BoardComponent extends JComponent implements ActionListener
     int fH;
     JLabel firstNameL,spinL,kidL,spouseL,houseL,jobL,balanceL,tileL,actionL;
     JFrame fr;
-    public BoardComponent(JFrame fr)
+    JLayeredPane pane;
+    public BoardComponent(JFrame fr, ArrayList<Player> playerList)
     {
         this.fr=fr;
         fW = fr.getWidth();
         fH = fr.getHeight();
         
+        Car c = new Car(fr);
+        fr.add(c);
+        fr.setVisible(true);
+        
         mainP = new JPanel();
         mainP.setBorder(BorderFactory.createLineBorder(Color.blue));
         //mainP.setLayout(new BorderLayout());
         mainP.setPreferredSize(new Dimension(700, 700));  
+        pane = new JLayeredPane();
         JLabel boardL = new JLabel();
+        pane.add(boardL, new Integer(5));
+        
+        
         ImageIcon ic = new ImageIcon("Board.png");
         Image im = ic.getImage();
-
         BufferedImage bimage = new BufferedImage(im.getWidth(null), im.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics2D bGr = bimage.createGraphics();
         bGr.drawImage(im, 0, 0, null);
@@ -124,6 +132,14 @@ public class BoardComponent extends JComponent implements ActionListener
         
         
     }
+    
+    public void addCars(ArrayList<Player> list)
+    {
+        for(Player p : list)
+        {
+            p.addCar(pane);
+        }
+    }
 
     public static ImageIcon resize(BufferedImage imageIcon, double width, double height, boolean straight)//resizes the image to fit a space
     {
@@ -152,17 +168,6 @@ public class BoardComponent extends JComponent implements ActionListener
         g2d.dispose();//invokes dispose method on g2d
         Image icon = (Image) bi;//returns an imageIcon with bi
         return new ImageIcon(icon);
-    }
-
-    public void testLocation(ArrayList<Space> spaceList)
-    {
-        for(Space s : spaceList)
-        {
-            Peg p = new Peg(true,s.getXPos(),s.getYPos(),15);
-            fr.add(p);
-            fr.setVisible(true);
-            fr.setComponentZOrder(p,0);
-        }
     }
 
     public JLabel getNameL()

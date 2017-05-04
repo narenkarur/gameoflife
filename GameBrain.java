@@ -31,23 +31,24 @@ public class GameBrain
      */
     public GameBrain(int x, int y, ArrayList<Boolean> genderList, ArrayList<String> nameList)
     {
-        
+
         /*
          * I'm moving the UI panel stuff to boardcomponent class which extends jcomponent and 
          * implements actionlistener so that the stuff can be refreshed and can move
          */
-        
+
         fW=x;
         fH=y;
         fr=new JFrame("LIFE");
         fr.setSize(fW,fH);
         fr.getContentPane().setLayout(new BorderLayout());
-        boardUI = new BoardComponent(fr);
-        
+
         for(int i=0;i<genderList.size();i++)
         {
             addPlayer(genderList.get(i),nameList.get(i));
         }
+        boardUI = new BoardComponent(fr, playList);
+        
         choosePath();
         int endCount=0;
         boolean gameContinue=true;
@@ -88,9 +89,10 @@ public class GameBrain
         System.out.println("TURN 4");
         turn(playList.get(0));
         turn(playList.get(1)); 
-        
+
         System.out.println(b.getSpaceList().size());*/
     }
+
     public void runEndSeq()
     {
         String line1="GAME IS OVER.";
@@ -106,7 +108,7 @@ public class GameBrain
         String line3=("Congrats and thanks for playing!");
         boardUI.setEndText(line1,line2,line3,putList);
     }
-    
+
     public String whoWon()
     {
         String returnWon=playList.get(0).getName();
@@ -178,7 +180,6 @@ public class GameBrain
         if(!p.getDone())
         {
             System.out.println(); 
-            b.testLocations(boardUI);
             //boardUI.getNameL().setText(p.getName());
             System.out.println("Player " + p.getName() + ":");
             int spaceNum = w.spin(); 
@@ -186,10 +187,10 @@ public class GameBrain
             int firstSpaceNum=spaceNum;
             boardUI.setText(p,firstSpaceNum);            
             System.out.println("You spun " + spaceNum);
-    
+
             spaceNum = b.checkForRed(spaceNum,p);
             b.checkForGreen(spaceNum, p);
-            
+
             p.addSpace(spaceNum);
             b.actionFromSpace(p.getSpaceNum(), p);
             //p.checkForAction();

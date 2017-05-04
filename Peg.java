@@ -7,8 +7,9 @@ public class Peg extends JComponent
     boolean male;
     Color color;
     int x,y,w;
+    JFrame fr;
 
-    public Peg(boolean m, int x, int y, int w)
+    public Peg(boolean m, int x, int y, int w, JFrame fr)
     {
         male = m;
         if(male)
@@ -18,6 +19,7 @@ public class Peg extends JComponent
         this.x = x;
         this.y = y;
         this.w = w;
+        this.fr = fr;
     }
     
     public void paintComponent(Graphics g)
@@ -32,6 +34,7 @@ public class Peg extends JComponent
         Ellipse2D.Double dot = new Ellipse2D.Double(x,y,w,w);
         g2.draw(dot);
         g2.fill(dot);
+        fr.setVisible(true);
     }
     
     

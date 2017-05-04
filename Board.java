@@ -280,15 +280,12 @@ public class Board
         //spaceList.add(new GreenSpace(constructor stuff));
     }
     
-    public void testLocations(BoardComponent c)
-    {
-        c.testLocation(spaceList);
-    }
     
     public void runSpaceMethod(int type, int[] values, String text,Player p)    
     {
         //change player stuff here
         //p.setAction(text);
+        p.move(spaceList.get(p.getSpaceNum()).getXPos(),spaceList.get(p.getSpaceNum()).getYPos());
         if(type==1)
         {
             System.out.println(text);

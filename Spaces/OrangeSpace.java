@@ -30,7 +30,7 @@ public class OrangeSpace extends Space
                 houseBinary = 1;
                 careerBinary = 0;
                 xPos = 10+0*(700/14);
-                
+                yPos = 40;
                 break;
             }
             case 1:

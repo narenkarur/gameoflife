@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import javax.swing.*;
 /**
  * Write a description of class Egine here.
  * 
@@ -57,4 +58,21 @@ public class Engine
     {
         
     }
+    
+    public static void main2()
+    {
+        JFrame frame = new JFrame();
+        frame.setSize(500,500);
+        Car car = new Car(frame);
+        car.addPeg(true);
+        car.addPeg(false);
+        car.addPeg(true);
+        car.addPeg(false);
+        frame.add(car);
+        frame.setVisible(true);
+        //Peg p = new Peg(true, 10,10,10);
+        //frame.add(p);
+        frame.setVisible(true);
+    }
+    
 }

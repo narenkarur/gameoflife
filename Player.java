@@ -1,6 +1,6 @@
 import Spaces.Space;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import javax.swing.*;
 public class Player
 {
     boolean male;
@@ -21,9 +21,10 @@ public class Player
     boolean ifSpouse;
     String action;
     ArrayList<Space> spaceList;
+    JFrame fr;
     public Player(boolean m, String n, JFrame frame)
     {
-        car = new Car();
+        car = new Car(frame);
         male=m;
         car.addPeg(male);
         name=n;
@@ -34,6 +35,16 @@ public class Player
         ifSpouse=false;
         house="";
         action="";
+        fr = frame;
+
+    }
+
+    public void addCar(JLayeredPane mainP)
+    {
+        //         fr.add(car);
+        //         fr.setVisible(true);
+        //         fr.setComponentZOrder(car,0);
+        mainP.add(car, new Integer(2));
     }
 
     public void addSpace(int n)
@@ -252,10 +263,10 @@ public class Player
     {
         spaceList = list;
     }
-    
-    public void move()
+
+    public void move(int x, int y)
     {
-        
+        car.move(x,y);
     }
 
 }
